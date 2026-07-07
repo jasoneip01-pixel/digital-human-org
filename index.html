@@ -51,7 +51,12 @@ body{
   letter-spacing:.2px;
 }
 .sidebar a:hover{color:var(--text);background:rgba(255,255,255,.02);border-left-color:var(--accent)}
-.sidebar a.active{color:var(--accent);border-left-color:var(--accent);background:rgba(77,208,225,.05)}
+
+/* Pure CSS scroll-spy via :target */
+section:target{animation:flash .6s ease-out}
+@keyframes flash{0%{background:var(--accent-dim)}100%{background:transparent}}
+/* .active styling removed - using :target instead */
+
 .sidebar a.divider{font-size:9px;text-transform:uppercase;letter-spacing:.6px;color:rgba(255,255,255,.15);padding:12px 18px 4px;font-weight:600;cursor:default}
 .sidebar a.divider:hover{color:rgba(255,255,255,.15);background:transparent;border-left-color:transparent}
 
@@ -204,13 +209,16 @@ pre .m{color:var(--purple)}
   #sidebar{display:none}
   #sidebar.open{display:block;position:fixed;width:260px;background:var(--bg);z-index:100;border-right:1px solid var(--border)}
 }
-/* ── Mobile sidebar opener (hidden by default) ── */
+/* ── Mobile sidebar opener (hidden by default, pure CSS checkbox hack) ── */
 @media(max-width:820px){
-  .mobile-nav{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;cursor:pointer;background:var(--surface)}
+  .mobile-nav{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;cursor:pointer;background:var(--surface);user-select:none}
   .mobile-nav .icon{font-size:16px;color:var(--accent)}
   .mobile-nav:hover{background:var(--surface2)}
+  #sidebar{display:none}
+  .sidebar-toggle:checked~#sidebar{display:block;position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--bg);z-index:100;border-right:1px solid var(--border)}
+  .sidebar-toggle:checked~.content{opacity:.4;pointer-events:none}
 }
-@media(min-width:821px){.mobile-nav{display:none}}
+@media(min-width:821px){.mobile-nav{display:none}.sidebar-toggle{display:none}}
 </style>
 </head>
 <body>
@@ -223,28 +231,29 @@ pre .m{color:var(--purple)}
     <span>数字人组织</span>
     <span class="sub">产品定义 · 商业模式</span>
   </div>
-  <a href="#" class="active" data-target="hero">概览</a>
-  <a href="#sec1" data-target="sec1"><span class="num">01</span> 定位与愿景</a>
-  <a href="#sec2" data-target="sec2"><span class="num">02</span> 核心问题</a>
-  <a href="#sec3" data-target="sec3"><span class="num">03</span> 用户画像</a>
-  <a href="#sec4" data-target="sec4"><span class="num">04</span> 功能架构</a>
-  <a href="#sec5" data-target="sec5"><span class="num">05</span> 系统架构</a>
-  <a href="#sec6" data-target="sec6"><span class="num">06</span> 实现路径</a>
+  <a href="#">概览</a>
+  <a href="#sec1"><span class="num">01</span> 定位与愿景</a>
+  <a href="#sec2"><span class="num">02</span> 核心问题</a>
+  <a href="#sec3"><span class="num">03</span> 用户画像</a>
+  <a href="#sec4"><span class="num">04</span> 功能架构</a>
+  <a href="#sec5"><span class="num">05</span> 系统架构</a>
+  <a href="#sec6"><span class="num">06</span> 实现路径</a>
   <a class="divider">商业模式</a>
-  <a href="#sec7" data-target="sec7"><span class="num">07</span> 收入模型</a>
-  <a href="#sec8" data-target="sec8"><span class="num">08</span> 定价体系</a>
-  <a href="#sec9" data-target="sec9"><span class="num">09</span> 单位经济</a>
-  <a href="#sec10" data-target="sec10"><span class="num">10</span> 竞品定位</a>
-  <a href="#sec11" data-target="sec11"><span class="num">11</span> GTM 策略</a>
-  <a href="#sec12" data-target="sec12"><span class="num">12</span> 风险与应对</a>
+  <a href="#sec7"><span class="num">07</span> 收入模型</a>
+  <a href="#sec8"><span class="num">08</span> 定价体系</a>
+  <a href="#sec9"><span class="num">09</span> 单位经济</a>
+  <a href="#sec10"><span class="num">10</span> 竞品定位</a>
+  <a href="#sec11"><span class="num">11</span> GTM 策略</a>
+  <a href="#sec12"><span class="num">12</span> 风险与应对</a>
   <a class="divider">附录</a>
-  <a href="#sec-app" data-target="sec-app">关键假设清单</a>
+  <a href="#sec-app">关键假设清单</a>
 </div>
 
 <!-- ═══ Mobile Nav ═══ -->
-<div class="mobile-nav" onclick="document.getElementById('sidebar').classList.toggle('open')">
+<input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" hidden>
+<label for="sidebar-toggle" class="mobile-nav">
   <span class="icon">☰</span> 目录导航
-</div>
+</label>
 
 <!-- ═══ Content ═══ -->
 <div class="content">
@@ -446,39 +455,7 @@ pre .m{color:var(--purple)}
 
 </div><!-- /content -->
 
-<script>
-// Scroll spy for sidebar
-document.addEventListener('DOMContentLoaded', function(){
-  var sections = document.querySelectorAll('section, .hero');
-  var links = document.querySelectorAll('.sidebar a[data-target]');
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        var id = entry.target.id || 'hero';
-        links.forEach(function(l){
-          l.classList.toggle('active', l.getAttribute('data-target') === id);
-        });
-      }
-    });
-  }, {rootMargin:'-50% 0px -50% 0px'});
-  sections.forEach(function(s){ observer.observe(s); });
-
-  // Mobile sidebar toggle
-  var sidebar = document.getElementById('sidebar');
-  var mobileTog = document.querySelector('.mobile-nav');
-  if(mobileTog) mobileTog.addEventListener('click', function(){
-    sidebar.classList.toggle('open');
-  });
-  // Close sidebar on link click (mobile)
-  sidebar.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      sidebar.classList.remove('open');
-    });
-  });
-});
-
-// Mobile sidebar: styles in CSS (no dynamic injection needed)
-</script>
+<script>/* All navigation is pure HTML+CSS; no JS needed */</script>
 
 </body>
 </html>
