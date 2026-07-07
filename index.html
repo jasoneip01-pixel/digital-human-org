@@ -199,6 +199,11 @@ pre .m{color:var(--purple)}
   .hero-badge{border:1px solid var(--accent);color:var(--accent)!important}
 }
 
+/* ── Mobile sidebar ── */
+@media(max-width:820px){
+  #sidebar{display:none}
+  #sidebar.open{display:block;position:fixed;width:260px;background:var(--bg);z-index:100;border-right:1px solid var(--border)}
+}
 /* ── Mobile sidebar opener (hidden by default) ── */
 @media(max-width:820px){
   .mobile-nav{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;cursor:pointer;background:var(--surface)}
@@ -472,17 +477,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
-// Add mobile sidebar styles dynamically
-var style = document.createElement('style');
-style.textContent = '
-@media(max-width:820px){
-  #sidebar{display:none}
-  #sidebar.open{display:block;position:fixed;width:260px;background:rgba(7,11,20,0.97);z-index:100}
-  #sidebar.open~.mobile-nav{display:none}
-  body.has-sidebar-open{overflow:hidden}
-}
-';
-document.head.appendChild(style);
+// Mobile sidebar: styles in CSS (no dynamic injection needed)
 </script>
 
 </body>
