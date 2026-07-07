@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5">
-<title>数字人组织 — 产品定义说明书 & 商业模式</title>
-<meta name="description" content="数字人组织 — 企业级 AI 数字员工操作系统 · 产品定义说明书 & 商业模式 · 第一性原理分析">
+<title>数字人组织 — 企业 AI 协作操作系统 | 投资者演示文稿</title>
+<meta name="description" content="数字人组织 — 企业 AI 协作操作系统 · 投资人版 · 市场分析 · 技术架构 · 竞争格局 · 商业计划">
 <meta name="theme-color" content="#070b14">
-
 <style>
 :root{
   --bg:#070b14; --surface:#0f1420; --surface2:#161c2e; --surface3:#1c2340;
@@ -27,15 +26,16 @@ body{
              var(--bg);
   color:var(--text);font-size:14px;line-height:1.7;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  
 }
 .bg-glow{position:fixed;inset:0;pointer-events:none;z-index:0}
 .bg-glow::before{content:'';position:absolute;top:-30%;left:-10%;width:60%;height:80%;background:radial-gradient(ellipse,rgba(77,208,225,.06) 0%,transparent 70%)}
 .bg-glow::after{content:'';position:absolute;bottom:-20%;right:-10%;width:50%;height:70%;background:radial-gradient(ellipse,rgba(167,139,250,.05) 0%,transparent 70%)}
-.page-wrapper{overflow-x:hidden;min-height:100vh}
 .grid-lines{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;
   background-image:linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px);
   background-size:60px 60px}
+
+/* ── Page wrapper ── */
+.page-wrapper{overflow-x:hidden;min-height:100vh;position:relative;z-index:1}
 
 /* ── Sidebar ── */
 .sidebar{
@@ -43,66 +43,54 @@ body{
   background:rgba(0,0,0,.4);border-right:1px solid var(--border);
   padding:20px 0;overflow-y:auto;
 }
-.sidebar .logo{padding:0 18px 16px;font-size:14px;font-weight:700;border-bottom:1px solid var(--border);margin-bottom:10px;line-height:1.4}
+.sidebar .logo{padding:0 18px 16px;font-size:13px;font-weight:700;border-bottom:1px solid var(--border);margin-bottom:8px;line-height:1.4}
 .sidebar .logo span{color:var(--accent)}
-.sidebar .logo .sub{font-size:11px;font-weight:400;color:var(--muted);display:block;margin-top:2px}
-.sidebar a{
-  display:block;padding:7px 18px;font-size:11px;color:var(--muted);
-  text-decoration:none;transition:all .1s;border-left:2px solid transparent;
-  letter-spacing:.2px;
-}
+.sidebar .logo .sub{font-size:10px;font-weight:400;color:var(--muted);display:block;margin-top:2px}
+.sidebar a{display:block;padding:5px 18px;font-size:11px;color:var(--muted);text-decoration:none;transition:all .1s;border-left:2px solid transparent;letter-spacing:.2px}
 .sidebar a:hover{color:var(--text);background:rgba(255,255,255,.02);border-left-color:var(--accent)}
-
-/* Pure CSS scroll-spy via :target */
-section:target{animation:flash .6s ease-out}
-@keyframes flash{0%{background:var(--accent-dim)}100%{background:transparent}}
-/* .active styling removed - using :target instead */
-
-.sidebar a.divider{font-size:9px;text-transform:uppercase;letter-spacing:.6px;color:rgba(255,255,255,.15);padding:12px 18px 4px;font-weight:600;cursor:default}
+.sidebar a.divider{font-size:8px;text-transform:uppercase;letter-spacing:.6px;color:rgba(255,255,255,.15);padding:10px 18px 3px;font-weight:600;cursor:default}
 .sidebar a.divider:hover{color:rgba(255,255,255,.15);background:transparent;border-left-color:transparent}
 
 /* ── Content ── */
 .content{margin-left:var(--sidebar-w);position:relative;z-index:1}
-section{padding:44px 48px 36px;border-bottom:1px solid var(--border);max-width:820px;scroll-margin-top:16px}
+section{padding:36px 48px 30px;border-bottom:1px solid var(--border);max-width:820px;scroll-margin-top:16px}
 section:last-child{border-bottom:none}
-h2{font-size:20px;font-weight:700;margin-bottom:12px;letter-spacing:-.3px}
-h2 .num{color:var(--accent);margin-right:6px}
-h3{font-size:15px;font-weight:600;margin:22px 0 10px;color:#e2e8f0}
-h4{font-size:13px;font-weight:600;margin:14px 0 6px;color:var(--accent)}
-p{font-size:13px;color:var(--muted);margin-bottom:10px;line-height:1.8}
+h2{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.3px}
+h2 .num{color:var(--accent);margin-right:6px;font-feature-settings:'tnum'}
+h3{font-size:14px;font-weight:600;margin:18px 0 8px;color:#e2e8f0}
+h4{font-size:12px;font-weight:600;margin:12px 0 5px;color:var(--accent)}
+p{font-size:13px;color:var(--muted);margin-bottom:8px;line-height:1.7}
 p strong{color:var(--text)}
 code{font-family:'SF Mono','Fira Code','Menlo',monospace;font-size:11px;background:rgba(255,255,255,.04);padding:1px 5px;border-radius:3px;color:var(--accent)}
-ul,ol{padding-left:18px}
-li{font-size:13px;color:var(--muted);margin-bottom:5px;line-height:1.7}
+ul,ol{padding-left:16px}
+li{font-size:12px;color:var(--muted);margin-bottom:4px;line-height:1.6}
 li strong{color:var(--text)}
-blockquote{border-left:3px solid var(--accent);padding:10px 16px;margin:12px 0;background:var(--surface);border-radius:0 6px 6px 0;font-size:13px;color:var(--muted)}
 
 /* ── Cards ── */
-.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
-.card-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.card-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0}
 .card{
   background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);
-  padding:14px 16px;transition:all .2s;
+  padding:12px 14px;transition:all .2s;
 }
 .card:hover{border-color:rgba(148,200,255,.15)}
-.card h4{color:var(--text);font-size:13px;margin:0 0 6px}
-.card p{font-size:11px;color:var(--muted);margin:0;line-height:1.6}
+.card h4{color:var(--text);font-size:12px;margin:0 0 5px}
+.card p{font-size:11px;color:var(--muted);margin:0;line-height:1.5}
 .card li{font-size:11px;color:var(--muted);margin-bottom:3px;line-height:1.5}
-.card ul{padding-left:14px;margin:6px 0 4px}
-.card .big{font-size:26px;font-weight:800;color:var(--accent);margin-bottom:2px;line-height:1.2}
+.card ul{padding-left:14px;margin:4px 0}
+.card .big{font-size:24px;font-weight:800;color:var(--accent);margin-bottom:1px;line-height:1.2}
 .card .big.purple{color:var(--purple)}
 .card .big.green{color:var(--green)}
 .card .big.amber{color:var(--amber)}
-.card .label{font-size:10px;color:var(--muted);margin-top:2px}
 
 /* ── Tables ── */
-.table-wrap{overflow-x:auto;margin:12px 0;-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border)}
-th{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;background:var(--surface2);white-space:nowrap}
+.table-wrap{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th,td{padding:6px 8px;text-align:left;border-bottom:1px solid var(--border)}
+th{font-size:9px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;background:var(--surface2);white-space:nowrap}
 tr:hover td{background:rgba(255,255,255,.015)}
 td:first-child{font-weight:500;color:var(--text)}
-td .tag{padding:1px 6px;border-radius:3px;font-size:9px;font-weight:600;white-space:nowrap}
+td .tag{padding:1px 5px;border-radius:3px;font-size:8px;font-weight:600;white-space:nowrap}
 .tag.green{background:rgba(74,222,128,.12);color:var(--green)}
 .tag.red{background:rgba(239,68,68,.1);color:var(--red)}
 .tag.amber{background:rgba(251,191,36,.1);color:var(--amber)}
@@ -110,173 +98,128 @@ td .tag{padding:1px 6px;border-radius:3px;font-size:9px;font-weight:600;white-sp
 .tag.blue{background:rgba(96,165,250,.12);color:#60a5fa}
 
 /* ── Callouts ── */
-.callout{
-  padding:10px 14px;border-radius:6px;font-size:12px;line-height:1.6;margin:12px 0;
-  border-left:3px solid;
-}
+.callout{padding:8px 12px;border-radius:6px;font-size:11px;line-height:1.5;margin:10px 0;border-left:3px solid}
 .callout.cyan{background:rgba(77,208,225,.06);border-color:var(--accent);color:var(--muted)}
 .callout.cyan strong{color:var(--accent)}
 .callout.green{background:rgba(74,222,128,.06);border-color:var(--green);color:var(--muted)}
-.callout.green strong{color:var(--green)}
 .callout.red{background:rgba(239,68,68,.06);border-color:var(--red);color:var(--muted)}
 .callout.purple{background:rgba(167,139,250,.06);border-color:var(--purple);color:var(--muted)}
-.callout.purple strong{color:var(--purple)}
 
-/* ── Tags ── */
-.tags-wrap{margin:6px 0}
-.inline-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin:1px}
+/* ── Metric row ── */
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px;text-align:center}
+.metric .big{font-size:20px;font-weight:800;color:var(--accent);margin-bottom:1px;line-height:1.2}
+.metric .label{font-size:9px;color:var(--muted)}
+
+/* ── Hero ── */
+.hero{padding:48px 48px 32px;max-width:820px;border-bottom:1px solid var(--border);scroll-margin-top:16px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:600;color:var(--accent);background:var(--accent-dim);padding:4px 12px;border-radius:20px;margin-bottom:16px}
+.hero h1{font-size:28px;font-weight:800;letter-spacing:-.6px;line-height:1.2;margin-bottom:8px}
+.hero .sub{font-size:14px;color:var(--muted);margin-bottom:4px;font-weight:400}
+.hero .meta{margin-top:12px;font-size:10px;color:rgba(255,255,255,.2)}
+
+/* ── <details> collapsible ── */
+details.collapse{margin:0}
+details.collapse summary{
+  cursor:pointer;padding:14px 0;user-select:none;outline:none;
+  font-size:18px;font-weight:700;letter-spacing:-.3px;
+  display:flex;align-items:center;gap:10px;
+}
+details.collapse summary::-webkit-details-marker{display:none}
+details.collapse summary::before{
+  content:'▶';font-size:14px;color:var(--accent);
+  transition:transform .15s;display:inline-block;
+}
+details.collapse[open] summary::before{transform:rotate(90deg)}
+details.collapse summary .num{color:var(--accent);margin-right:2px}
+details.collapse .body{padding-left:0;padding-bottom:4px}
+details.collapse section:first-of-type{padding-top:0}
+
+/* ── learder ── */
+.leader{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5}
+
+/* ── Tags inline ── */
+.tags-wrap{margin:4px 0}
+.inline-tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:9px;font-weight:600;margin:1px}
 .inline-tag.cyan{background:rgba(77,208,225,.12);color:var(--accent)}
 .inline-tag.green{background:rgba(74,222,128,.12);color:var(--green)}
 .inline-tag.purple{background:rgba(167,139,250,.12);color:var(--purple)}
 .inline-tag.amber{background:rgba(251,191,36,.1);color:var(--amber)}
+.inline-tag.red{background:rgba(239,68,68,.1);color:var(--red)}
 
-/* ── Pre ── */
-pre{
-  background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);
-  padding:12px 14px;font-family:'SF Mono','Fira Code','Menlo',monospace;font-size:11px;
-  line-height:1.6;overflow-x:auto;margin:10px 0;color:var(--text);
-}
+pre{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:'SF Mono','Fira Code','Menlo',monospace;font-size:10px;line-height:1.5;overflow-x:auto;margin:8px 0;color:var(--text)}
 pre .c{color:rgba(255,255,255,.3);font-style:italic}
 pre .k{color:var(--accent)}
-pre .s{color:var(--green)}
-pre .e{color:var(--red)}
-pre .w{color:var(--amber)}
-pre .v{color:#60a5fa}
-pre .m{color:var(--purple)}
 
-/* ── Metric row ── */
-.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
-.metric{
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);
-  padding:12px;text-align:center;
-}
-.metric .big{font-size:22px;font-weight:800;color:var(--accent);margin-bottom:2px;line-height:1.2}
-.metric .label{font-size:10px;color:var(--muted);margin-top:2px}
-
-/* ── Hero ── */
-.hero{padding:64px 48px 44px;max-width:820px;border-bottom:1px solid var(--border);scroll-margin-top:16px}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:11px;font-weight:600;color:var(--accent);
-  background:var(--accent-dim);padding:5px 14px;border-radius:20px;margin-bottom:20px;
-}
-.hero h1{font-size:32px;font-weight:800;letter-spacing:-.8px;line-height:1.2;margin-bottom:12px}
-.hero .sub{font-size:15px;color:var(--muted);margin-bottom:6px;line-height:1.5;font-weight:400;letter-spacing:0}
-.hero .meta{margin-top:18px;font-size:11px;color:rgba(255,255,255,.25)}
+blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 6px 6px 0;font-size:12px;color:var(--muted)}
 
 /* ── Two/Three col ── */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
-.leader{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.phase-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0}
 
-/* ── Phases / Timeline ── */
-.phase-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0}
-
-/* ════════════════════════════════ */
-/*  Responsive Breakpoints          */
-/* ════════════════════════════════ */
-
-/* ── Phase grid (tablet) ── */
-@media(max-width:1024px){
-  .phase-grid{grid-template-columns:1fr 1fr}
-}
-
-/* ── Tablet Portrait / Small Laptop ── */
+/* ═══ Responsive ═══ */
+@media(max-width:1024px){.phase-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:960px){
-  .content{margin-left:0}
-  .sidebar{display:none}
-  section{padding:36px 28px 30px;max-width:100%}
-  .hero{padding:48px 28px 36px;max-width:100%}
-  .card-grid,.card-grid-3,.two-col,.three-col,.metric-row{grid-template-columns:1fr 1fr}
+  .content{margin-left:0}.sidebar{display:none}
+  section{padding:30px 24px 24px;max-width:100%}
+  .hero{padding:36px 24px 24px;max-width:100%}
+  .card-grid,.card-grid-3,.two-col,.metric-row{grid-template-columns:1fr 1fr}
   .phase-grid{grid-template-columns:1fr 1fr}
-  /* Show mobile nav below 960px */
-  .mobile-nav-details{display:block;position:sticky;top:0;z-index:50;border-bottom:1px solid var(--border)}
+  .mobile-nav-details{display:block!important;position:sticky;top:0;z-index:50;border-bottom:1px solid var(--border)}
 }
-
-/* ── Large Phone / Small Tablet (landscape) ── */
 @media(max-width:768px){
-  section{padding:30px 20px 26px}
-  .hero{padding:40px 20px 30px}
-  .hero h1{font-size:28px}
-  h2{font-size:18px}
-  .card-grid,.card-grid-3,.two-col,.three-col,.metric-row{grid-template-columns:1fr 1fr}
-  .phase-grid{grid-template-columns:1fr}
-  .leader{font-size:13px}
-}
-
-/* ── Phone (portrait) ── */
-@media(max-width:560px){
-  .card-grid,.card-grid-3,.two-col,.three-col,.phase-grid,.metric-row{grid-template-columns:1fr}
-  section{padding:24px 14px 20px}
-  .hero{padding:32px 14px 24px}
-  .hero h1{font-size:22px}
-  h2{font-size:16px}
-  h3{font-size:13px}
-  p,li,blockquote,.callout{font-size:12px}
-  th,td{font-size:11px;padding:6px 8px}
-  .table-wrap{margin:8px -14px;border-radius:0}
-  .card{padding:10px 12px}
-  .card .big{font-size:22px}
-  .metric .big{font-size:20px}
-  .hero-badge{font-size:10px;padding:4px 12px}
-  .inline-tag{font-size:9px;padding:1px 6px}
-  .sidebar .num{display:none}
-  .mobile-nav-links .num{display:inline}
-}
-
-/* ── Small Phone ── */
-@media(max-width:360px){
-  section{padding:18px 10px 16px}
-  .hero{padding:24px 10px 20px}
-  .hero h1{font-size:19px}
-  .hero-badge{font-size:9px;padding:3px 10px}
-  .metric-row{grid-template-columns:1fr 1fr}
-  .metric{padding:8px}
-  .table-wrap{margin:6px -10px}
-}
-
-/* ── Phone Landscape (<960px, landscape) ── */
-@media(max-width:960px) and (orientation:landscape){
+  section{padding:24px 16px 20px}
+  .hero{padding:28px 16px 20px}
   .hero h1{font-size:24px}
-  .hero{padding:28px 20px 20px}
-  section{padding:20px 20px 18px}
+  h2,details.collapse summary{font-size:16px}
+  .card-grid,.card-grid-3,.two-col,.metric-row{grid-template-columns:1fr 1fr}
+  .phase-grid{grid-template-columns:1fr}
+  .leader{font-size:12px}
+}
+@media(max-width:560px){
+  .card-grid,.card-grid-3,.two-col,.phase-grid,.metric-row{grid-template-columns:1fr}
+  section{padding:18px 10px 14px}
+  .hero{padding:22px 10px 16px}
+  .hero h1{font-size:20px}
+  h2,details.collapse summary{font-size:15px}
+  .card{padding:10px}
+  p,li,.callout{font-size:12px}
+  th,td{font-size:10px;padding:5px 6px}
+  h3{font-size:12px}
+  .table-wrap{margin:6px -10px}
   .card .big{font-size:20px}
   .metric .big{font-size:18px}
-  .phase-grid{grid-template-columns:1fr 1fr}
+  .metric-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:360px){
+  section{padding:14px 8px 12px}
+  .hero{padding:18px 8px 14px}
+  .hero h1{font-size:17px}
+}
+@media(max-width:960px) and (orientation:landscape){
+  .hero h1{font-size:22px}.hero{padding:20px 16px 14px}
+  section{padding:16px 16px 14px}
 }
 
-/* ── Mobile nav: always visible below 960px (merged condition) ── */
+/* ── Mobile nav ── */
+.mobile-nav-details{display:none}
 @media(max-width:960px){
-  .mobile-nav-details summary.mobile-nav{
-    display:flex;align-items:center;gap:10px;padding:12px 14px;
-    font-size:13px;font-weight:600;cursor:pointer;background:var(--surface);
+  .mobile-nav-details summary{
+    display:flex;align-items:center;gap:8px;padding:10px 14px;
+    font-size:12px;font-weight:600;cursor:pointer;background:var(--surface);
     list-style:none;user-select:none;
   }
-  .mobile-nav-details summary.mobile-nav::-webkit-details-marker{display:none}
-  .mobile-nav-details summary.mobile-nav .icon{font-size:16px;color:var(--accent)}
-  .mobile-nav-details summary.mobile-nav:hover{background:var(--surface2)}
-  .mobile-nav-links{
-    background:var(--bg);border-bottom:1px solid var(--border);
-    padding:8px 0;
-  }
-  .mobile-nav-links a{
-    display:block;padding:8px 18px;font-size:12px;color:var(--muted);
-    text-decoration:none;border-left:2px solid transparent;
-  }
+  .mobile-nav-details summary::-webkit-details-marker{display:none}
+  .mobile-nav-details summary::before{content:'☰ ';font-size:14px;color:var(--accent)}
+  .mobile-nav-links{background:var(--bg);border-bottom:1px solid var(--border);padding:6px 0}
+  .mobile-nav-links a{display:block;padding:6px 16px;font-size:11px;color:var(--muted);text-decoration:none;border-left:2px solid transparent}
   .mobile-nav-links a:hover{color:var(--text);background:rgba(255,255,255,.02);border-left-color:var(--accent)}
-  .mobile-nav-links .divider{
-    display:block;padding:10px 18px 4px;font-size:9px;text-transform:uppercase;
-    letter-spacing:.6px;color:rgba(255,255,255,.15);font-weight:600;
-  }
+  .mobile-nav-links .divider{display:block;padding:8px 16px 2px;font-size:8px;text-transform:uppercase;letter-spacing:.5px;color:rgba(255,255,255,.15);font-weight:600}
 }
-@media(min-width:961px){
-  .mobile-nav-details{display:none!important}
-}
+@media(min-width:961px){.mobile-nav-details{display:none!important}}
 
-/* ── Print ── */
 @media print{
-  .sidebar{display:none}.content{margin-left:0}
-  .mobile-nav-details{display:none!important}
+  .sidebar{display:none}.content{margin-left:0}.mobile-nav-details{display:none!important}
   body{background:white;color:#1a1a2e}
   .card,.callout,pre{border-color:#ccc;background:#f5f5f5!important}
   section,.hero{border-bottom-color:#ddd}
@@ -286,402 +229,225 @@ pre .m{color:var(--purple)}
 }
 </style>
 </head>
-<body><div class="page-wrapper">
+<body>
+
 <div class="bg-glow"></div>
 <div class="grid-lines"></div>
 
+<div class="page-wrapper">
+
 <!-- ═══ Sidebar ═══ -->
 <div class="sidebar" id="sidebar">
-  <div class="logo">
-    <span>数字人组织</span>
-    <span class="sub">产品定义 · 商业模式</span>
-  </div>
+  <div class="logo"><span>数字人组织</span><span class="sub">投资者版</span></div>
   <a href="#">概览</a>
-  <a href="#sec1"><span class="num">01</span> 定位与愿景</a>
-  <a href="#sec2"><span class="num">02</span> 核心问题</a>
-  <a href="#sec3"><span class="num">03</span> 用户画像</a>
-  <a href="#sec4"><span class="num">04</span> 功能架构</a>
-  <a href="#sec5"><span class="num">05</span> 系统架构</a>
-  <a href="#sec6"><span class="num">06</span> 实现路径</a>
-    <a class="divider">架构深化 v1.1</a>
-  <a href="#sec6a"><span class="num">06A</span> Agent 通信协议 IACP</a>
-  <a href="#sec6b"><span class="num">06B</span> @agent 标签路由</a>
-  <a href="#sec6c"><span class="num">06C</span> Cowork & HIL 模式</a>
-  <a href="#sec6d"><span class="num">06D</span> 多 Agent 编排</a>
-  <a href="#sec6e"><span class="num">06E</span> 记忆架构</a>
-  <a href="#sec6f"><span class="num">06F</span> 安全基础</a>
-  <a href="#sec6g"><span class="num">06G</span> 生态协同</a>
-  <a class="divider">商业模式</a>
-  <a href="#sec7"><span class="num">07</span> 收入模型</a>
-  <a href="#sec8"><span class="num">08</span> 定价体系</a>
-  <a href="#sec9"><span class="num">09</span> 单位经济</a>
-  <a href="#sec10"><span class="num">10</span> 竞品定位</a>
-  <a href="#sec11"><span class="num">11</span> GTM 策略</a>
-  <a href="#sec12"><span class="num">12</span> 风险与应对</a>
-  <a class="divider">附录</a>
-  <a href="#sec-app">关键假设清单</a>
+  <a class="divider">核心</a>
+  <a href="#problem">问题</a>
+  <a href="#solution">方案</a>
+  <a href="#market">市场机会</a>
+  <a class="divider">深度</a>
+  <a href="#tech">技术架构</a>
+  <a href="#competitive">竞争格局</a>
+  <a href="#business">商业模式</a>
+  <a href="#financials">财务预测</a>
+  <a class="divider">执行</a>
+  <a href="#roadmap">路线图</a>
+  <a href="#risks">风险评估</a>
+  <a href="#ask">融资需求</a>
 </div>
 
-<!-- ═══ Mobile Nav (HTML5 <details> native toggle) ═══ -->
+<!-- ═══ Mobile Nav ═══ -->
 <details class="mobile-nav-details">
-  <summary class="mobile-nav"><span class="icon">☰</span> 目录导航</summary>
+  <summary>目录导航</summary>
   <div class="mobile-nav-links">
     <a href="#">概览</a>
-    <a href="#sec1"><span class="num">01</span> 定位与愿景</a>
-    <a href="#sec2"><span class="num">02</span> 核心问题</a>
-    <a href="#sec3"><span class="num">03</span> 用户画像</a>
-    <a href="#sec4"><span class="num">04</span> 功能架构</a>
-    <a href="#sec5"><span class="num">05</span> 系统架构</a>
-    <a href="#sec6"><span class="num">06</span> 实现路径</a>
-    <span class="divider">架构深化 v1.1</span>
-    <a href="#sec6a"><span class="num">06A</span> Agent 通信协议 IACP</a>
-    <a href="#sec6b"><span class="num">06B</span> @agent 标签路由</a>
-    <a href="#sec6c"><span class="num">06C</span> Cowork & HIL 模式</a>
-    <a href="#sec6d"><span class="num">06D</span> 多 Agent 编排</a>
-    <a href="#sec6e"><span class="num">06E</span> 记忆架构</a>
-    <a href="#sec6f"><span class="num">06F</span> 安全基础</a>
-    <a href="#sec6g"><span class="num">06G</span> 生态协同</a>
-    <span class="divider">商业模式</span>
-    <a href="#sec7"><span class="num">07</span> 收入模型</a>
-    <a href="#sec8"><span class="num">08</span> 定价体系</a>
-    <a href="#sec9"><span class="num">09</span> 单位经济</a>
-    <a href="#sec10"><span class="num">10</span> 竞品定位</a>
-    <a href="#sec11"><span class="num">11</span> GTM 策略</a>
-    <a href="#sec12"><span class="num">12</span> 风险与应对</a>
-    <span class="divider">附录</span>
-    <a href="#sec-app">关键假设清单</a>
+    <a class="divider">核心</a>
+    <a href="#problem">问题</a>
+    <a href="#solution">方案</a>
+    <a href="#market">市场机会</a>
+    <a class="divider">深度</a>
+    <a href="#tech">技术架构</a>
+    <a href="#competitive">竞争格局</a>
+    <a href="#business">商业模式</a>
+    <a href="#financials">财务预测</a>
+    <a class="divider">执行</a>
+    <a href="#roadmap">路线图</a>
+    <a href="#risks">风险评估</a>
+    <a href="#ask">融资需求</a>
   </div>
 </details>
 
 <!-- ═══ Content ═══ -->
 <div class="content">
 
-<!-- Hero -->
-<div class="hero" id="hero">
-  <div class="hero-badge">第一性原理产品设计 v1.0 · 8 层架构</div>
+<!-- ═══════════ HERO ═══════════ -->
+<div class="hero">
+  <div class="hero-badge">🔬 第一性原理 · 投资人版 v2.0</div>
   <h1>数字人组织</h1>
-  <p class="sub">Enterprise AI Collaboration OS<br>企业 AI 协作操作系统 — 让每个员工拥有 10 个数字实习生</p>
-  <p class="meta">产品定义说明书 · 商业模式设计 · 2026.07 · v1.1 架构深化</p>
+  <p class="sub">
+    <strong style="color:var(--text)">Enterprise AI Collaboration OS</strong><br>
+    企业 AI 协作操作系统 — 让每个员工拥有 10 个数字实习生
+  </p>
+  <div class="metric-row" style="margin-top:20px;">
+    <div class="metric"><div class="big">2400亿</div><div class="label">AI Agent 全球 TAM (2027E)</div></div>
+    <div class="metric"><div class="big">¥699</div><div class="label">专业版 ARPU/人/月</div></div>
+    <div class="metric"><div class="big">40-58%</div><div class="label">单位边际利润率</div></div>
+    <div class="metric"><div class="big">10×</div><div class="label">人力成本替代比</div></div>
+  </div>
+  <p class="meta">投资摘要 · 市场分析 · 技术架构 · 商业计划 · 2026.07 v2.0</p>
 </div>
 
-<section id="sec1">
-  <h2><span class="num">01</span> 产品定位与愿景</h2>
-  <p class="leader">让企业像管理员工一样管理 AI 数字员工 — <strong style="color:var(--amber)">v1.1 架构深化版</strong></p>
-  <div class="callout cyan">
-    <p><strong>一句话定义：</strong> 数字人组织 = 一个企业级的 AI Agent 管理与编排平台。它在个人 AI 助手（如 WorkBuddy）的基础上增加了 <strong>「组织」层</strong>——支持多 Agent 的岗位定义、权限管理、流程协作、绩效监控和合规审计。</p>
+<!-- ═══════════ EXECUTIVE SUMMARY ═══════════ -->
+<section id="exec">
+  <h2><span class="num">0</span> 执行摘要</h2>
+  <div class="callout cyan" style="font-size:13px;">
+    <p><strong>一句话：</strong> 数字人组织是一个让企业像管理团队一样编排 AI Agent 的操作系统——填补了从「个人 AI 助手」到「企业级 AI 协作」之间的架构空白。</p>
   </div>
-  <p><strong>愿景：</strong> 成为企业 AI 协作的操作系统层。核心洞察——AI 在企业中的最佳角色是<strong>协作伙伴</strong>（数字同事），而非替代者。每个员工配 10 个数字实习生，执行 Propose→Review→Execute→Verify 闭环。</p>
-
-<div class="callout cyan">
-  <p><strong>v1.1 定位跃迁：</strong> 从「数字员工管理平台」→「企业 AI 协作操作系统」。三个新增核心支柱：① Agent 间通信协议（IACP） ② @agent 标签路由 ③ 跨层安全基础。</p>
-</div>
-  <h3>不是做什么</h3>
-  <ul>
-    <li>不是又一个 AI 对话界面</li>
-    <li>不是低代码 RPA 平台</li>
-    <li>不是大模型 API 网关</li>
-  </ul>
-  <div class="tags-wrap">
-    <span class="inline-tag purple">AI Agent 引擎</span>
-    <span class="inline-tag green">企业组织管理</span>
-    <span class="inline-tag amber">工作流编排</span>
-  </div>
-</section>
-
-<section id="sec2">
-  <h2><span class="num">02</span> 核心问题</h2>
-  <p class="leader">企业在部署 AI Agent 时遇到的系统性矛盾</p>
-  <div class="card-grid">
-    <div class="card"><h4>🔥 管理黑洞</h4><p>AI 项目散落在各部门——HR 不知谁负责，IT 不知权限怎么设，老板不知 ROI 怎么算。</p></div>
-    <div class="card"><h4>🔥 治理真空</h4><p>50 个 Agent 同时运行时：谁对输出负责？数据能不能跨域？决策怎么留痕？</p></div>
-    <div class="card"><h4>🔥 集成地狱</h4><p>Agent 要调 CRM/ERP/OA/企微，不做集成层，Agent 只在聊天框里回答问题。</p></div>
-    <div class="card"><h4>🔥 规模失效</h4><p>1 个 Agent POC 简单，1→100 个要解决角色/权限/知识库隔离/成本分摊/性能监控。</p></div>
-  </div>
-</section>
-
-<section id="sec3">
-  <h2><span class="num">03</span> 用户画像</h2>
-  <div class="table-wrap"><table>
-    <tr><th>角色</th><th>核心诉求</th><th>决策权重</th></tr>
-    <tr><td>CTO / CIO</td><td>统一管理、安全合规、成本可控、不自建</td><td><span class="tag green">60%</span></td></tr>
-    <tr><td>HRD</td><td>数字员工可以定岗定编，能考核绩效</td><td><span class="tag blue">20%</span></td></tr>
-    <tr><td>业务 VP</td><td>不需要懂 AI 就能用，见效快</td><td><span class="tag amber">15%</span></td></tr>
-    <tr><td>一线员工</td><td>数字同事不会抢功、不会甩锅</td><td><span class="tag purple">5%</span></td></tr>
-  </table></div>
-  <div class="callout cyan"><p><strong>关键洞察：</strong> CTO/CIO 是核心决策者。数字人组织必须长在已有企业管理框架里，做钉钉/企微/飞书的插件而非替代品。</p></div>
-</section>
-
-<section id="sec4">
-  <h2><span class="num">04</span> 功能架构</h2>
-  <p class="leader">四个功能域，按企业部署优先级排列</p>
-  <div class="card-grid-3">
-    <div class="card"><h4>🔵 域 I<br>数字员工管理</h4><p>全生命周期：岗位定义→入职培训→排班调度→绩效看板→退役归档</p></div>
-    <div class="card"><h4>🟢 域 II<br>Agent 推理引擎</h4><p>多模型路由、Tool Use 框架、记忆系统、RAG 引擎、安全围栏</p></div>
-    <div class="card"><h4>🟠 域 III<br>治理合规</h4><p>权限矩阵、审计日志、租户隔离、成本中心</p></div>
-  </div>
-  <div class="card" style="grid-column:1/-1"><h4>🟣 域 IV · 生态系统</h4><p>技能市场、模板工厂、API 网关——让伙伴替你解决问题</p></div>
-</section>
-
-<section id="sec5">
-  <h2><span class="num">05</span> 系统架构</h2>
-  <p class="leader">八层架构（v1.1 扩展）—— 从 Agent 内核到企业可观测性 + 跨层安全</p>
-  
-  </div>
-
-  
-  <div class="card-grid-3" style="grid-template-columns:1fr">
-    <div class="card" style="border-color:rgba(251,191,36,.3)"><h4 style="color:var(--amber)">🟠 [8] Observability & Cost Attribution <span class="tag amber">NEW</span></h4><p>Distributed Tracing（OpenTelemetry）· Cost Attribution · Alerting · Dashboard · Agent Performance Metrics</p></div>
-    <div class="card" style="border-color:rgba(239,68,68,.3)"><h4 style="color:var(--red)">🔴 [7] Inter-Agent Protocol Layer <span class="tag red">NEW</span> ⚡</h4><p>Request-Response · Event Pub/Sub · Task Delegation · Result Acknowledgment · Conflict Resolution · Agent Discovery</p></div>
-    <div class="card" style="border-color:rgba(167,139,250,.3)"><h4 style="color:var(--purple)">🟣 [6] Task Routing & Tag System <span class="tag purple">NEW</span></h4><p>Capability Registry · @agent Tags · Priority Queue · Load Balancer · Context-aware Routing</p></div>
-    <div class="card" style="border-color:rgba(74,222,128,.3)"><h4 style="color:var(--green)">🟢 [5] Cowork & Human-in-the-Loop Layer <span class="tag green">NEW</span></h4><p>Propose→Review→Execute→Verify · 4 HIL Modes: Pre-approval / Post-audit / Escalation / Review</p></div>
-    <div class="card"><h4 style="color:var(--accent)">🟡 [4] 管理层</h4><p>Workspace · 配额管理 · 计费 · 审计日志 · 租户隔离 · 成本报表</p></div>
-    <div class="card"><h4 style="color:var(--amber)">🟠 [3] 组织层</h4><p>岗位定义 → 数字人编排 → 工作流引擎 → 绩效监控 → 培训环境 · 跨 Agent 协作 · 排班调度 · 角色隔离</p></div>
-    <div class="card"><h4 style="color:var(--green)">🟢 [2] 数字人层</h4><p>身份模块 · 推理引擎 · 技能/Tool Use · 记忆持久化 · 多模型路由 · RAG 引擎 · 安全围栏 · 对话管理</p></div>
-    <div class="card"><h4 style="color:var(--purple)">🟣 [1] 集成层</h4><p>企微/钉钉/飞书 · SAP/OA/CRM/ERP · 数据库 · IM 消息通道 · API 网关 · Webhook · 企业 SSO · MCP 协议</p></div>
-  </div>
-
-  <div class="card" style="grid-column:1/-1;border-color:rgba(239,68,68,.2);border-style:dashed">
-    <h4 style="color:var(--red)">🔒 [0] 安全基础（跨层） <span class="tag red">NEW</span></h4>
-    <p>Prompt 注入防护 · RBAC/ABAC · Immutable Audit Trail · Agent 间 Namespace 隔离 · 输入/输出过滤器 · 工具权限矩阵</p>
-  </div>
-
-<h3>关键设计决策</h3>
-  <div class="table-wrap"><table>
-    <tr><th>决策</th><th>选择</th><th>理由</th></tr>
-    <tr><td>Agent vs 微服务</td><td>持久化 Agent 实例</td><td>企业需要「员工身份」的连续性</td></tr>
-    <tr><td>模型选择</td><td>多模型路由</td><td>不同岗位对成本/质量要求不同</td></tr>
-    <tr><td>知识库</td><td>RAG + KG 混合</td><td>关键决策需要确定性查询</td></tr>
-    <tr><td>部署方式</td><td>SaaS + 私有化双轨</td><td>中小用 SaaS，大型必须私有化</td></tr>
-    <tr><td>工作流</td><td>DAG 编排 + 人工触发点</td><td>审批流程必须保留人工节点</td></tr>
-  </table></div>
-</section>
-
-<section id="sec6">
-  <h2><span class="num">06</span> 实现路径</h2>
-  <p class="leader">三阶段，6-12 个月</p>
-  <div class="phase-grid">
-    <div class="card">
-      <div class="big" style="color:var(--amber)">📦</div>
-      <h4>Phase 1 · MVP</h4>
-      <p>2-3 月</p>
-      <ul><li>单 Agent（对话+Tool Use+RAG）</li><li>身份模块</li><li>1-2 个连接器</li><li>管理后台基础</li></ul>
-    </div>
-    <div class="card">
-      <div class="big">🏗️</div>
-      <h4>Phase 2 · 组织化</h4>
-      <p>4-6 月</p>
-      <ul><li>多 Agent 编排+工作流引擎</li><li>绩效看板</li><li>审计+租户隔离</li><li>技能插件市场</li></ul>
-    </div>
-    <div class="card">
-      <div class="big" style="color:var(--purple)">🌐</div>
-      <h4>Phase 3 · 平台化</h4>
-      <p>6-12 月</p>
-      <ul><li>私有化部署</li><li>第三方开发者生态</li><li>模型无关架构</li><li>合规认证</li></ul>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- Architecture Deep Dive (v1.1 additions)    -->
-<!-- ═══════════════════════════════════════════ -->
-
-<section id="sec6a" style="border-top:2px solid var(--border)">
-  <h2><span class="num">06A</span> 第一部分：Inter-Agent Protocol（IACP）<span class="tag red" style="vertical-align:middle;margin-left:6px">NEW</span></h2>
-  <p class="leader">Agent 间通信协议 — 数字人组织的「神经系统」</p>
-
-  <div class="callout red">
-    <p><strong>缺失影响：</strong> 没有 Agent 间通信协议 → 所有 Agent 只能通过编排层中介通信 → 单点瓶颈 + 灵活度受限。企业 100+ Agent 场景下编排层成为不可接受的吞吐瓶颈。</p>
-  </div>
-
-  <h3>协议四原语</h3>
-  <div class="card-grid-3">
-    <div class="card"><h4>📡 Request-Response</h4><p>Agent A 向 Agent B 请求数据/操作，等待响应。同步模式，适合查询、验证。</p></div>
-    <div class="card"><h4>📢 Event Pub/Sub</h4><p>Agent 发布事件（如「发票已审核」），订阅者自动接收。异步模式，适合通知、日志。</p></div>
-    <div class="card"><h4>🔄 Task Delegation</h4><p>Agent A 将子任务委派给 Agent B/C，跟踪结果。适合工作流分解。</p></div>
-  </div>
-  <div class="card-grid" style="margin-top:12px">
-    <div class="card"><h4>✅ Result Acknowledgment</h4><p>接收方返回结构化回执：{status, changeset, errors, confidence}。</p></div>
-    <div class="card"><h4>⚡ Conflict Resolution</h4><p>两个 Agent 产出冲突时，采用 last-write-wins、CRDT 或向上级 Agency 仲裁。</p></div>
-  </div>
-
-  <h3>通信拓扑</h3>
-  <div class="table-wrap"><table>
-    <tr><th>模式</th><th>适用场景</th><th>优势</th><th>劣势</th></tr>
-    <tr><td>P2P 直连</td><td>固定协作对（财务↔法务）</td><td>低延迟，无中介</td><td>耦合度高</td></tr>
-    <tr><td>Mediated（中介路由）</td><td>动态任务分发</td><td>灵活，可审计</td><td>性能开销</td></tr>
-    <tr><td>Orchestrator</td><td>复杂多步骤流程</td><td>上下文统一</td><td>单点风险</td></tr>
-    <tr><td>Mesh</td><td>探索型任务（研究/分析）</td><td>无单点，自组织</td><td>审计困难</td></tr>
-  </table></div>
-</section>
-
-<section id="sec6b">
-  <h2><span class="num">06B</span> 第二部分：@agent 标签路由系统 <span class="tag purple" style="vertical-align:middle;margin-left:6px">NEW</span></h2>
-  <p class="leader">借鉴 Claude Code @claude 标签 → 企业 IM 消息流中的 @agent 路由</p>
-
-  <div class="callout purple">
-    <p><strong>灵感来源：</strong> Claude Code 的 @claude 标签允许用户通过注释标记代码文件来调用 Claude。在企业 IM（飞书/企微/钉钉）中，@agent(角色) 标签可以天然嵌入消息流。</p>
-  </div>
-
-  <pre><span class="c">// Claude Code 模式</span>
-<span class="k">@claude</span> Review this function for SQL injection vulnerabilities
-
-<span class="c">// → 数字人组织映射</span>
-<span class="k">@agent</span>(<span class="s">财务</span>) 核对本月供应商发票，标记异常项
-<span class="k">@agent</span>(<span class="s">法务</span>) 审查这个合同的合规风险
-<span class="k">@agent</span>(<span class="s">客服</span>) 处理这批工单，所有退款需 <span class="k">@human</span> 审批</pre>
-
-  <h3>标签体系</h3>
-  <div class="table-wrap"><table>
-    <tr><th>标签类型</th><th>语法</th><th>示例</th></tr>
-    <tr><td>领域标签</td><td>/finance /hr /legal /tech /sales</td><td><code>@agent(/finance) 核对应收账款</code></td></tr>
-    <tr><td>动作标签</td><td>/query /execute /approve /review</td><td><code>@agent(/execute) 批量导入客户数据</code></td></tr>
-    <tr><td>优先级标签</td><td>/urgent /routine /scheduled</td><td><code>@agent(/urgent) 处理异常交易预警</code></td></tr>
-    <tr><td>安全标签</td><td>/confidential /internal /public</td><td><code>@agent(/confidential) 审查并购文件</code></td></tr>
-    <tr><td>协作标签</td><td>@human /@team /@approver</td><td><code>@agent(/legal) 起草合同，@approver 审批</code></td></tr>
-  </table></div>
-
-  <h3>路由规则</h3>
-  <div class="card-grid">
-    <div class="card"><h4>🎯 Capability-based</h4><p>根据 Agent 注册的能力自动匹配：<code>/finance/execute</code> → 财务数字人</p></div>
-    <div class="card"><h4>🏷️ Tag-based</h4><p>用户显式指定：<code>@agent(财务)</code> 强制路由</p></div>
-    <div class="card"><h4>⚖️ Load-aware</h4><p>同类 Agent 有多个时，按负载和优先级分发（类似任务队列）</p></div>
-    <div class="card"><h4>🔀 Context-aware</h4><p>根据对话上下文推断（群聊历史→检测到财务话题→自动建议财务 Agent）</p></div>
-  </div>
-</section>
-
-<section id="sec6c">
-  <h2><span class="num">06C</span> 第三部分：Cowork 模式 & Human-in-the-Loop <span class="tag green" style="vertical-align:middle;margin-left:6px">NEW</span></h2>
-  <p class="leader">从「AI 替代人」到「人+AI 协作」— Claude Code 协作模式的企业级迁移</p>
-
-  <h3>Claude Code → 数字人组织直接映射</h3>
-  <div class="table-wrap"><table>
-    <tr><th>Claude Code 模式</th><th>→ 数字人组织映射</th><th>企业场景</th></tr>
-    <tr><td><code>@claude</code> 文件级标签</td><td><code>@agent(角色)</code> 任务级路由标签</td><td>群聊中 @agent(法务) 审查合同</td></tr>
-    <tr><td><code>/approve</code> 审批机制</td><td>岗位审批链（role-based approval）</td><td>财务 10 万以下自动、以上需 CFO 审批</td></tr>
-    <tr><td>multi-step planning</td><td>工作流 Step/Phase 自动分解</td><td>入职流程：HR→IT→财务 三步自动编排</td></tr>
-    <tr><td>diff preview</td><td>执行前 changeset 预览</td><td>Agent 修改数据库前展示变更清单</td></tr>
-    <tr><td>terminal shell exec</td><td>Tool Use 沙箱执行</td><td>SAP 参数由 Agent 填写，人工 confirm 执行</td></tr>
-    <tr><td>session persistence</td><td>任务记忆 + 岗位记忆</td><td>Agent 记住每个员工的偏好和工作习惯</td></tr>
-  </table></div>
-
-  <h3>四种 Human-in-the-Loop 模式</h3>
-  <div class="card-grid">
-    <div class="card"><h4>🔐 Pre-approval</h4><p>AI 提案 → 人工审批 → AI 执行<br><span style="color:var(--muted);font-size:11px">适用：法务审查、大额支付、对外发布内容</span></p></div>
-    <div class="card"><h4>📊 Post-audit</h4><p>AI 执行 → 记录日志 → 人工抽样复核<br><span style="color:var(--muted);font-size:11px">适用：客服回复、数据标注、报表生成</span></p></div>
-    <div class="card"><h4>🚨 Escalation</h4><p>AI 执行 → 异常触发上报 → 人工介入<br><span style="color:var(--muted);font-size:11px">适用：风控预警、系统异常、置信度<阈值</span></p></div>
-    <div class="card"><h4>📅 Review</h4><p>AI 自动 → 定期批量人工复核<br><span style="color:var(--muted);font-size:11px">适用：费用报销、考勤异常、合规扫描</span></p></div>
-  </div>
-
-  <div class="callout cyan">
-    <p><strong>推销话术重构：</strong> 不说「这个 AI 能替你的 3 个人」，说「每个人配 10 个数字实习生，你把关就好」。前者引发抗拒，后者引发好奇。</p>
-  </div>
-</section>
-
-<section id="sec6d">
-  <h2><span class="num">06D</span> 第四部分：多 Agent 编排模式 <span class="tag blue" style="vertical-align:middle;margin-left:6px">NEW</span></h2>
-  <p class="leader">四种编排模式共存 — 不同场景走不同拓扑</p>
-
-  <div class="callout cyan">
-    <p><strong>核心洞察：</strong> 持久化 Agent Identity（岗位定义）和按需 Task-oriented Instance（临时实例）可以共存——同一个「客服岗数字人」在不同时间以 Orchestrator / Worker / Supervisor 切换。<code style="color:var(--accent)">Identity ≠ Instance</code></p>
-  </div>
-
-  <div class="card-grid">
-    <div class="card" style="border-color:rgba(77,208,225,.2)"><h4>🎭 Orchestrator/Plugin</h4><p>一个编排 Agent 接收任务 → 拆解 → 分配给专用 Sub-Agent → 汇总结果</p><div class="tags-wrap" style="margin-top:4px"><span class="tag green">默认模式</span></div></div>
-    <div class="card" style="border-color:rgba(74,222,128,.2)"><h4>🔗 Sequential Chain</h4><p>Agent A → B → C 流水线传递<br>例：发票识别→核对→审批→支付→归档</p><div class="tags-wrap" style="margin-top:4px"><span class="tag blue">审批流程</span></div></div>
-    <div class="card" style="border-color:rgba(167,139,250,.2)"><h4>🕸️ Mesh/Swarm</h4><p>Agent 间自由协调，无中央控制<br>例：竞品分析、创意生成、研究</p><div class="tags-wrap" style="margin-top:4px"><span class="tag purple">探索</span></div></div>
-    <div class="card" style="border-color:rgba(251,191,36,.2)"><h4>👁️ Supervisor/Worker</h4><p>Supervisor 分派→多 Worker 并行→汇总<br>例：批量客户工单、数据清洗</p><div class="tags-wrap" style="margin-top:4px"><span class="tag amber">批量</span></div></div>
-  </div>
-
-  <h3>编排选择矩阵</h3>
-  <div class="table-wrap"><table>
-    <tr><th>场景</th><th>推荐模式</th><th>理由</th></tr>
-    <tr><td>HR 入职流程（多部门串联）</td><td>Sequential Chain</td><td>HR→IT→财务，有先后依赖</td></tr>
-    <tr><td>客服工单（批量处理）</td><td>Supervisor/Worker</td><td>大量工单并行，汇总结果</td></tr>
-    <tr><td>竞品分析（无固定流程）</td><td>Mesh/Swarm</td><td>多 Agent 从不同角度分析，自由碰撞</td></tr>
-    <tr><td>月度报表（多数据源）</td><td>Orchestrator/Plugin</td><td>中央调度，聚合多源数据</td></tr>
-    <tr><td>合同审批（多层级审批）</td><td>Sequential Chain + HIL</td><td>每步有审批节点</td></tr>
-  </table></div>
-</section>
-
-<section id="sec6e">
-  <h2><span class="num">06E</span> 第五部分：记忆架构 <span class="tag purple" style="vertical-align:middle;margin-left:6px">NEW</span></h2>
-  <p class="leader">四层记忆体系 — 从单次对话到组织知识</p>
-
-  <div class="phase-grid" style="grid-template-columns:1fr 1fr">
-    <div class="card"><h4 style="color:var(--accent)">💬 对话记忆</h4><p>当前会话上下文<br><span style="color:var(--muted);font-size:11px">生命周期：会话结束即释放<br>技术：LLM context window</span></p></div>
-    <div class="card"><h4 style="color:var(--green)">📋 任务记忆</h4><p>跨会话的任务持久化<br><span style="color:var(--muted);font-size:11px">生命周期：任务完成 → 归档<br>技术：向量数据库 + 摘要</span></p></div>
-    <div class="card"><h4 style="color:var(--purple)">🧠 岗位记忆</h4><p>持续学习的岗位经验<br><span style="color:var(--muted);font-size:11px">生命周期：持续积累<br>技术：偏好模型 + 个人知识库</span></p></div>
-    <div class="card"><h4 style="color:var(--amber)">🏢 组织知识库</h4><p>全局共享的企业知识<br><span style="color:var(--muted);font-size:11px">生命周期：永久<br>技术：RAG + KG + 权限隔离</span></p></div>
-  </div>
-
-  <div class="callout purple">
-    <p><strong>关键设计原则：</strong> ① 记忆隔离 — 法务数字人不能读到财务数字人的对话记忆 ② 向上收敛 — 有价值的对话记忆 → 提炼为任务记忆 → 沉淀为岗位记忆 → 上升到组织知识 ③ 遗忘曲线 — 超过 90 天未访问的记忆自动归档，降低存储成本</p>
-  </div>
-</section>
-
-<section id="sec6f">
-  <h2><span class="num">06F</span> 第六部分：安全基础 <span class="tag red" style="vertical-align:middle;margin-left:6px">NEW</span></h2>
-  <p class="leader">跨层安全基础 — 企业采购的前置条件</p>
-
-  <div class="callout red">
-    <p><strong>AI 特有攻击面：</strong> ① Prompt 注入（用户输入恶意指令控制 Agent）② Agent 间侧信道（Agent A 输出含敏感数据，Agent B 在日志中读取）③ 工具滥用（Agent 获得权限后执行未授权操作）④ 数据泄露（Agent 记忆中含 PII / 商业机密）</p>
-  </div>
+  <p>企业 AI 部署正在经历从 POC 到规模化的临界点。但当前市场只有两类产品：个人级 AI 助手（Copilot/WorkBuddy）和 AI 开发平台（Coze/Dify）。<strong style="color:var(--accent)">中间层缺失——</strong>没有产品能管理 10-100+ 个 Agent 的岗位定义、权限、协作、审计和成本。</p>
 
   <div class="card-grid-3">
-    <div class="card"><h4>🛡️ Prompt 注入防护</h4><p>输入过滤器（检测 jailbreak pattern）+ 输出过滤器（脱敏重写）+ 沙箱验证</p><div class="tags-wrap" style="margin-top:4px"><span class="tag red">P0</span></div></div>
-    <div class="card"><h4>🔑 RBAC/ABAC</h4><p>角色权限（RBAC）+ 属性权限（ABAC，如「仅在 9-18 时访问财务系统」）</p><div class="tags-wrap" style="margin-top:4px"><span class="tag red">P0</span></div></div>
-    <div class="card"><h4>📜 Immutable Audit</h4><p>Agent 所有决策链不可篡改记录——谁输入、AI 推理了什么、做了什么、谁审批的</p><div class="tags-wrap" style="margin-top:4px"><span class="tag amber">P1</span></div></div>
-  </div>
-
-  <div class="card-grid" style="margin-top:12px">
-    <div class="card"><h4>🔒 Agent Namespace 隔离</h4><p>每个数字人运行在独立沙箱/容器，跨数字人数据访问需显式授权</p><div class="tags-wrap" style="margin-top:4px"><span class="tag amber">P1</span></div></div>
-    <div class="card"><h4>🕵️ Data Classification</h4><p>数据分级（公开/内部/机密/绝密）→ 自动限制低级别 Agent 的数据访问范围</p><div class="tags-wrap" style="margin-top:4px"><span class="tag green">P2</span></div></div>
+    <div class="card"><h4>🎯 目标市场</h4><p>中国 2000 万家企业中的 AI 先行者。首期目标：1000 家付费客户，10 万数字人头</p></div>
+    <div class="card"><h4>🏆 核心优势</h4><p>组织抽象层（岗位/角色/权限→Agent）+ @agent 标签路由 + MCP 生态 + 模型中立</p></div>
+    <div class="card"><h4>💰 收入目标</h4><p>Year 3 ARR ¥1.2 亿 · 单位利润率 58%（企业版）· 客户 LTV/CAC > 8×</p></div>
   </div>
 </section>
 
-<section id="sec6g">
-  <h2><span class="num">06G</span> 第七部分：生态协同 & 能力复用 <span class="tag blue" style="vertical-align:middle;margin-left:6px">NEW</span></h2>
-  <p class="leader">数字人组织 × agent-docs 工具链的协同矩阵</p>
+<!-- ═══════════ PROBLEM ═══════════ -->
+<section id="problem">
+  <h2><span class="num">1</span> 核心问题——跨越 POC 死亡谷</h2>
+  <p class="leader">企业 AI 从试点到大规模部署的四个系统性断裂</p>
+  <div class="card-grid">
+    <div class="card" style="border-color:rgba(239,68,68,.15)"><h4>🔥 管理黑洞</h4><p>AI 项目散落各部门——HR 不知谁负责，IT 不知权限怎么设，老板不知 ROI 怎么算。缺少统一管理面。</p></div>
+    <div class="card" style="border-color:rgba(239,68,68,.15)"><h4>🔥 治理真空</h4><p>50 个 Agent 同时运行时：谁对输出负责？数据能不能跨域？决策怎么留痕？AI 的问责链在传统框架中不存在。</p></div>
+    <div class="card" style="border-color:rgba(239,68,68,.15)"><h4>🔥 集成地狱</h4><p>Agent 要调 CRM/ERP/OA/企微。不做集成层，Agent 只在聊天框里回答问题——集成占大模型项目 60-70% 的工作量。</p></div>
+    <div class="card" style="border-color:rgba(239,68,68,.15)"><h4>🔥 规模失效</h4><p>1 个 Agent POC 简单，1→100 个要解决角色/权限/知识库隔离/成本分摊/性能监控——这些基础设施不存在。</p></div>
+  </div>
+</section>
 
+<!-- ═══════════ SOLUTION ═══════════ -->
+<section id="solution">
+  <h2><span class="num">2</span> 方案——企业 AI 协作操作系统</h2>
+  <p class="leader">从「数字员工管理平台」进化到「企业 AI 协作操作系统」——三层核心价值</p>
+
+  <div class="card-grid-3">
+    <div class="card" style="border-color:rgba(77,208,225,.2)"><h4>📋 层 1 · 管理</h4><p>数字员工全生命周期：岗位定义→入职培训→排班→绩效→退休。CTO 看到一个团队，不是一堆 API。</p></div>
+    <div class="card" style="border-color:rgba(77,208,225,.2)"><h4>🤝 层 2 · 协作</h4><p>@agent 标签路由 + IACP 协议：Agent 之间、Agent 与人类之间的标准化协作。每次交互可追溯、可审计。</p></div>
+    <div class="card" style="border-color:rgba(77,208,225,.2)"><h4>🔒 层 3 · 治理</h4><p>Prompt 注入防护 · 权限矩阵 RBAC/ABAC · 不可变审计链 · 跨层安全基础。通过企业安全审计。</p></div>
+  </div>
+
+  <div class="callout cyan"><p><strong>关键差异：</strong> 不是又一个 AI 对话界面，不是低代码 RPA 平台，不是大模型 API 网关。是管理 AI 劳动力的操作系统层。</p></div>
+</section>
+
+<!-- ═══════════ MARKET OPPORTUNITY (collapsible) ═══════════ -->
+<details class="collapse" id="market" open>
+  <summary><span class="num">3</span> 市场机会</summary>
+  <div class="body">
+
+  <div class="callout green"><p><strong>AI Agent 市场正处在爆发前夜：</strong> Gartner 预测到 2027 年 40% 的企业将部署多 Agent 系统。MarketsAndMarkets 预计全球 AI Agent 市场从 2024 年 54 亿 → 2027 年 240 亿美元（CAGR 64%）。中国市场预计占全球 15-20%。</p></div>
+
+  <h3>TAM / SAM / SOM</h3>
+  <div class="metric-row">
+    <div class="metric"><div class="big" style="color:var(--amber)">2400亿</div><div class="label">TAM · 全球 AI Agent 市场<br><span style="font-size:8px">(2027E, USD)</span></div></div>
+    <div class="metric"><div class="big" style="color:var(--green)">360亿</div><div class="label">SAM · 中国市场<br><span style="font-size:8px">(中国占全球 15%)</span></div></div>
+    <div class="metric"><div class="big" style="color:var(--accent)">7.2亿</div><div class="label">SOM · 首期可触达<br><span style="font-size:8px">(1000 家客户 × 100 数字人)</span></div></div>
+    <div class="metric"><div class="big" style="color:var(--purple)">64%</div><div class="label">CAGR<br><span style="font-size:8px">(Market & Markets 预测)</span></div></div>
+  </div>
+
+  <h3>市场驱动力</h3>
+  <div class="card-grid">
+    <div class="card"><h4>💰 成本压力</h4><p>企业人力成本持续上升，AI 替代/协作用于白领工作的 ROI 首次越过盈亏平衡点</p></div>
+    <div class="card"><h4>🧠 模型能力的 S 曲线</h4><p>GPT-4o/Claude 4/DeepSeek 等模型在推理、工具使用、记忆方面达到实用门槛</p></div>
+    <div class="card"><h4>🏢 CTO 的合规焦虑</h4><p>AI 项目在组织内野蛮生长——CTO 需要统一管理面才敢放量</p></div>
+    <div class="card"><h4>🔧 MCP 生态成型</h4><p>Agent 工具标准化协议（MCP）解除集成瓶颈，让 Agent 真正能操作企业系统</p></div>
+  </div>
+  </div>
+</details>
+
+<!-- ═══════════ TECHNICAL ARCHITECTURE (collapsible) ═══════════ -->
+<details class="collapse" id="tech">
+  <summary><span class="num">4</span> 技术架构 <span class="tag amber" style="vertical-align:middle;font-size:9px">深度</span></summary>
+  <div class="body">
+
+  <p class="leader">八层架构 + 跨层安全基础。从 Agent 内核到企业可观测性，全覆盖。</p>
+
+  <div class="card-grid" style="grid-template-columns:1fr">
+    <div class="card" style="border-color:rgba(251,191,36,.3)"><h4 style="color:var(--amber)">🔸 [8] Observability & Cost Attribution</h4><p>分布式追踪（OpenTelemetry）· 成本归因 · 告警 · 仪表盘 · Agent 性能指标</p></div>
+    <div class="card" style="border-color:rgba(239,68,68,.3)"><h4 style="color:var(--red)">🔸 [7] Inter-Agent Protocol (IACP)</h4><p>Request-Response · Event Pub/Sub · Task Delegation · 冲突裁决 · Agent 发现</p></div>
+    <div class="card" style="border-color:rgba(167,139,250,.3)"><h4 style="color:var(--purple)">🔸 [6] Task Routing & @agent Tags</h4><p>能力注册表 · @agent 标签 · 优先级队列 · 上下文路由 · 负载均衡</p></div>
+    <div class="card" style="border-color:rgba(74,222,128,.3)"><h4 style="color:var(--green)">🔸 [5] Cowork & Human-in-the-Loop</h4><p>Propose→Review→Execute→Verify · 4 种 HIL 模式</p></div>
+    <div class="card"><h4 style="color:var(--accent)">🔸 [4] 管理层</h4><p>Workspace · 配额 · 计费 · 审计 · 租户隔离 · 成本报表</p></div>
+    <div class="card"><h4 style="color:var(--amber)">🔸 [3] 组织层</h4><p>岗位定义 · 数字人编排 · 工作流引擎 · 绩效监控 · 角色隔离</p></div>
+    <div class="card"><h4 style="color:var(--green)">🔸 [2] 数字人层</h4><p>身份 · 推理 · Tool Use · 记忆 · 多模型路由 · RAG · 安全围栏</p></div>
+    <div class="card"><h4 style="color:var(--purple)">🔸 [1] 集成层</h4><p>企微/钉钉/飞书 · SAP/OA/CRM · MCP 协议 · SSO · 数据管道</p></div>
+    <div class="card" style="border-color:rgba(239,68,68,.2);border-style:dashed"><h4 style="color:var(--red)">🔸 [0] 安全基础（跨层）</h4><p>Prompt 注入防护 · RBAC/ABAC · 不可变审计链 · Agent Namespace 隔离</p></div>
+  </div>
+
+  <h3>记忆架构</h3>
+  <div class="card-grid">
+    <div class="card"><h4>💬 对话记忆</h4><p>当前会话上下文 · 会话结束即释放</p></div>
+    <div class="card"><h4>📋 任务记忆</h4><p>跨会话持久化 · 向量数据库 + 摘要</p></div>
+    <div class="card"><h4>🧠 岗位记忆</h4><p>持续学习偏好 · 个人知识库</p></div>
+    <div class="card"><h4>🏢 组织知识</h4><p>全局共享 · RAG+KG · 权限隔离</p></div>
+  </div>
+
+  <h3>多 Agent 编排模式</h3>
   <div class="table-wrap"><table>
-    <tr><th>已有能力</th><th>协同方式</th><th>优先级</th></tr>
-    <tr><td><strong>MCP Registry</strong> · MCP 工具注册表</td><td>作为数字人组织的默认工具源——所有 Agent 通过 MCP Registry 发现和安装工具</td><td><span class="tag green">P0</span></td></tr>
-    <tr><td><strong>Agent Cost CLI</strong> · 推理成本追踪</td><td>作为成本中心数据源——每个数字人的推理费用自动上报到 Cost CLI</td><td><span class="tag amber">P1</span></td></tr>
-    <tr><td><strong>Agent DataDog</strong> · 跨框架可观测性</td><td>作为 Observability Layer 的基础——分布式追踪 + 仪表盘 + 告警</td><td><span class="tag amber">P1</span></td></tr>
-    <tr><td><strong>Skill Scanner</strong> · Agent 能力审计</td><td>审计每个数字人的技能版本——检测能力变更、安全漏洞、过期依赖</td><td><span class="tag green">P2</span></td></tr>
-    <tr><td><strong>Skill Surface Diff</strong> · 能力变更分析</td><td>追踪数字人岗位定义变更——谁改了哪个数字人的技能、什么时候改的</td><td><span class="tag green">P2</span></td></tr>
+    <tr><th>模式</th><th>场景</th><th>说明</th></tr>
+    <tr><td>Orchestrator/Plugin</td><td>月度报表</td><td>中央调度，聚合多源数据</td></tr>
+    <tr><td>Sequential Chain</td><td>入职流程</td><td>HR→IT→财务，有先后依赖</td></tr>
+    <tr><td>Supervisor/Worker</td><td>客服工单</td><td>大量任务并行，汇总结果</td></tr>
+    <tr><td>Mesh/Swarm</td><td>竞品分析</td><td>多角度探索，自由碰撞</td></tr>
   </table></div>
 
-  <div class="callout cyan">
-    <p><strong>协同基线：</strong> 当前 v1.0 产品定义完全没有引用这些已有能力——每个都各自独立。v1.1 应明确数字人组织与 agent-docs 工具链的集成路径，避免重复造轮子。</p>
   </div>
-</section>
+</details>
 
+<!-- ═══════════ COMPETITIVE (collapsible) ═══════════ -->
+<details class="collapse" id="competitive">
+  <summary><span class="num">5</span> 竞争格局与差异 <span class="tag amber" style="vertical-align:middle;font-size:9px">深度</span></summary>
+  <div class="body">
 
-<section id="sec7" style="border-top:2px solid var(--border)">
-  <h2><span class="num">07</span> 收入模型</h2>
-  <p class="leader">三层收入结构，递减依赖推理调用</p>
-  <div class="card-grid-3">
-    <div class="card"><div class="big">70%</div><h4>订阅</h4><p>按数字人头数 × 月/年。分层定价（基础-专业-企业）</p></div>
-    <div class="card"><div class="big purple">20%</div><h4>增值</h4><p>技能模板、API 配额、专属知识库空间</p></div>
-    <div class="card"><div class="big" style="color:var(--amber)">10%</div><h4>服务</h4><p>实施部署（¥30-200万/单）、定制开发、私有化运维</p></div>
-  </div>
-</section>
+  <p class="leader">我们不是做一个更好的 Copilot——我们在创建一个新品类。</p>
 
-<section id="sec8">
-  <h2><span class="num">08</span> 定价体系</h2>
   <div class="table-wrap"><table>
-    <tr><th>版本</th><th>定价</th><th>核心能力</th><th>目标客户</th></tr>
-    <tr><td>基础版</td><td><strong style="color:var(--accent)">¥199</strong>/人/月</td><td>基础 Agent · 限 5 数字人 · 1000 次/月推理</td><td>小型团队</td></tr>
+    <tr><th>竞品</th><th>定位</th><th>数字人组织的差异</th><th>威胁</th></tr>
+    <tr><td><strong>Microsoft Copilot</strong></td><td>个人生产力 AI</td><td>组织层缺失 → 无法管理 100 个 AI</td><td><span class="tag amber">中</span></td></tr>
+    <tr><td><strong>WorkBuddy</strong></td><td>个人桌面 AI Agent</td><td>个人效率 vs 企业组织管理</td><td><span class="tag green">低</span></td></tr>
+    <tr><td><strong>Coze / Dify</strong></td><td>AI 应用开发平台</td><td>搭 Chatbot vs 搭一个「部门」</td><td><span class="tag amber">中</span></td></tr>
+    <tr><td><strong>钉钉/企微 AI</strong></td><td>平台内嵌助手</td><td>渠道/入口，我们是管理后台</td><td><span class="tag red">高</span></td></tr>
+    <tr><td><strong>Glean / Atomicwork</strong></td><td>企业知识搜索+AI</td><td>找到信息 vs 把事情做完</td><td><span class="tag green">低</span></td></tr>
+    <tr><td><strong>Salesforce Agentforce</strong></td><td>CRM 内置 Agent</td><td>绑定 Salesforce vs 模型中立</td><td><span class="tag amber">中</span></td></tr>
+  </table></div>
+
+  <div class="card-grid">
+    <div class="card"><h4>🛡️ 护城河 1 · 组织抽象层</h4><p>岗位/角色/权限→Agent 的映射是独创的。竞品做的是 Agent 编排，我们做的是 Agent 人力资源管理。</p></div>
+    <div class="card"><h4>🛡️ 护城河 2 · 企业集成深度</h4><p>长在钉钉/企微/飞书生态里的管理后台，不是独立 SaaS。减少用户迁移成本。</p></div>
+    <div class="card"><h4>🛡️ 护城河 3 · IACP 协议</h4><p>Agent 间通信标准化。当企业有 100 个 Agent 时，没有 IACP 就是 100 个孤岛。</p></div>
+    <div class="card"><h4>🛡️ 护城河 4 · 模型中立</h4><p>不绑定任何模型。企业可以用 DeepSeek 做成本敏感任务，用 Claude 做推理密集型任务。</p></div>
+  </div>
+
+  </div>
+</details>
+
+<!-- ═══════════ BUSINESS MODEL ═══════════ -->
+<details class="collapse" id="business" open>
+  <summary><span class="num">6</span> 商业模式</summary>
+  <div class="body">
+
+  <div class="card-grid-3">
+    <div class="card"><div class="big">70%</div><h4>订阅收入</h4><p>按数字人头数 × 月/年。分层定价</p></div>
+    <div class="card"><div class="big purple">20%</div><h4>增值服务</h4><p>技能模板 · API 配额 · 专属知识库</p></div>
+    <div class="card"><div class="big amber">10%</div><h4>实施服务</h4><p>部署 ¥30-200万/单 · 定制 · 运维</p></div>
+  </div>
+
+  <h3>定价体系</h3>
+  <div class="table-wrap"><table>
+    <tr><th>版本</th><th>定价</th><th>核心能力</th><th>目标</th></tr>
+    <tr><td>基础版</td><td><strong style="color:var(--accent)">¥199</strong>/人/月</td><td>基础 Agent · 5 数字人 · 限 1000 次推理</td><td>小型团队</td></tr>
     <tr><td>专业版</td><td><strong style="color:var(--accent)">¥699</strong>/人/月</td><td>完整 Agent + 工作流 · 不限量 · 审计 · 技能市场</td><td>中型企业</td></tr>
-    <tr><td>企业版</td><td><strong style="color:var(--accent)">¥1,999</strong>/人/月</td><td>全部 + 私有化部署 · 专属微调 · SLA 99.9%</td><td>大型企业/国企</td></tr>
+    <tr><td>企业版</td><td><strong style="color:var(--accent)">¥1,999</strong>/人/月</td><td>全部 + 私有化 · 专属微调 · SLA 99.9%</td><td>大型企业/国企</td></tr>
   </table></div>
-  <div class="callout cyan"><p><strong>定价原则：</strong> 不按 Token 收费——企业厌恶变量费用。按人头固定月费，上限不限量。模型成本随规模下降，盈利空间自然增厚。</p></div>
-</section>
 
-<section id="sec9">
-  <h2><span class="num">09</span> 单位经济</h2>
+  <h3>单位经济</h3>
   <div class="table-wrap"><table>
     <tr><th>成本项</th><th>基础版</th><th>专业版</th><th>企业版</th></tr>
     <tr><td>模型推理</td><td>¥60</td><td>¥240</td><td>¥480</td></tr>
@@ -689,66 +455,102 @@ pre .m{color:var(--purple)}
     <tr><td>知识库索引</td><td>¥15</td><td>¥40</td><td>¥80</td></tr>
     <tr><td>平台基础设施</td><td>¥40</td><td>¥80</td><td>¥150</td></tr>
     <tr><td style="font-weight:700">总成本</td><td>¥135</td><td>¥420</td><td>¥830</td></tr>
-    <tr><td style="color:var(--green);font-weight:700">边际利润</td><td style="color:var(--green)">¥64 <span style="font-weight:400;color:var(--muted)">(32%)</span></td><td style="color:var(--green)">¥279 <span style="font-weight:400;color:var(--muted)">(40%)</span></td><td style="color:var(--green)">¥1,169 <span style="font-weight:400;color:var(--muted)">(58%)</span></td></tr>
+    <tr><td style="color:var(--green);font-weight:700">边际利润</td><td style="color:var(--green)">¥64 <span style="font-weight:400">(32%)</span></td><td style="color:var(--green)">¥279 <span style="font-weight:400">(40%)</span></td><td style="color:var(--green)">¥1,169 <span style="font-weight:400">(58%)</span></td></tr>
   </table></div>
+  <div class="callout cyan"><p><strong>定价原则：</strong> 不按 Token 收费——企业厌恶变量费用。按人头固定月费，模型成本随规模下降，盈利空间自然增厚。</p></div>
+
+  </div>
+</details>
+
+<!-- ═══════════ FINANCIAL PROJECTIONS (collapsible) ═══════════ -->
+<details class="collapse" id="financials">
+  <summary><span class="num">7</span> 财务预测 <span class="tag amber" style="vertical-align:middle;font-size:9px">深度</span></summary>
+  <div class="body">
+
+  <p class="leader">三年财务模型（保守情景）</p>
+
   <div class="metric-row">
-    <div class="metric"><div class="big" style="font-size:20px">¥64</div><div class="label">基础版单员月利润</div></div>
-    <div class="metric"><div class="big" style="font-size:20px">¥279</div><div class="label">专业版单员月利润</div></div>
-    <div class="metric"><div class="big" style="font-size:20px">¥1,169</div><div class="label">企业版单员月利润</div></div>
-    <div class="metric"><div class="big" style="font-size:20px">~10月</div><div class="label">平均客户回本周期</div></div>
+    <div class="metric"><div class="big" style="color:var(--amber)">Y1</div><div class="label">ARR ¥600 万</div><div class="label" style="font-size:8px">50 客户 · 1000 数字人</div></div>
+    <div class="metric"><div class="big" style="color:var(--green)">Y2</div><div class="label">ARR ¥3,600 万</div><div class="label" style="font-size:8px">200 客户 · 8000 数字人</div></div>
+    <div class="metric"><div class="big" style="color:var(--accent)">Y3</div><div class="label">ARR ¥1.2 亿</div><div class="label" style="font-size:8px">500 客户 · 3 万数字人</div></div>
+    <div class="metric"><div class="big" style="color:var(--purple)">Y3+</div><div class="label">ARR 破 ¥3 亿</div><div class="label" style="font-size:8px">1000 客户 · 10 万数字人</div></div>
   </div>
-</section>
 
-<section id="sec10">
-  <h2><span class="num">10</span> 竞品定位</h2>
+  <h3>成本结构（规模运营）</h3>
   <div class="table-wrap"><table>
-    <tr><th>竞品</th><th>定位</th><th>差异</th></tr>
-    <tr><td>WorkBuddy</td><td>个人桌面 AI Agent</td><td>个人效率 vs 企业组织管理</td></tr>
-    <tr><td>Coze / Dify</td><td>AI 应用开发平台</td><td>搭 Chatbot vs 搭一个「部门」</td></tr>
-    <tr><td>钉钉/企微 AI</td><td>平台内嵌 AI 助手</td><td>渠道/入口，我们是管理后台</td></tr>
-    <tr><td>Glean / Atomicwork</td><td>企业知识搜索+AI</td><td>找到信息 vs 做了这件事</td></tr>
+    <tr><th>成本项</th><th>Y1</th><th>Y2</th><th>Y3</th><th>占比(Y3)</th></tr>
+    <tr><td>模型推理（可变）</td><td>¥180 万</td><td>¥720 万</td><td>¥1,800 万</td><td>40%</td></tr>
+    <tr><td>基础设施（固定）</td><td>¥120 万</td><td>¥240 万</td><td>¥360 万</td><td>8%</td></tr>
+    <tr><td>研发团队（15→40人）</td><td>¥600 万</td><td>¥960 万</td><td>¥1,440 万</td><td>32%</td></tr>
+    <tr><td>销售 & 市场</td><td>¥300 万</td><td>¥600 万</td><td>¥720 万</td><td>16%</td></tr>
+    <tr><td>行政 & 其他</td><td>¥100 万</td><td>¥150 万</td><td>¥180 万</td><td>4%</td></tr>
+    <tr><td style="font-weight:700">总运营支出</td><td style="font-weight:700">¥1,300 万</td><td style="font-weight:700">¥2,670 万</td><td style="font-weight:700">¥4,500 万</td><td>100%</td></tr>
+    <tr><td style="color:var(--accent)">ARR</td><td style="color:var(--accent)">¥600 万</td><td style="color:var(--accent)">¥3,600 万</td><td style="color:var(--accent)">¥1.2 亿</td><td>—</td></tr>
+    <tr><td style="color:var(--green);font-weight:700">毛利</td><td style="color:var(--red)">-¥700 万</td><td style="color:var(--amber)">+¥930 万</td><td style="color:var(--green)">+¥7,500 万</td><td>62.5%</td></tr>
   </table></div>
-  <div class="callout purple"><p><strong>竞争壁垒：</strong> 1. 组织抽象层（岗位/角色/权限→Agent） 2. 企业集成深度 3. 合规框架 4. 模型中立</p></div>
-</section>
 
-<section id="sec11">
-  <h2><span class="num">11</span> GTM 策略</h2>
+  <div class="card-grid">
+    <div class="card"><h4>📈 关键假设</h4><ul><li>客户获取成本：¥15-25 万/企业客户</li><li>年续费率：>85%（SaaS 基准）</li><li>每客户平均数字人头数：Y1=20 → Y3=60</li><li>模型成本年降 30%（行业趋势）</li></ul></div>
+    <div class="card"><h4>📊 关键指标</h4><ul><li>LTV/CAC > 8×</li><li>CAC 回收期 < 12 个月</li><li>NPS > 50</li><li>Gross Retention > 90%</li></ul></div>
+  </div>
+
+  </div>
+</details>
+
+<!-- ═══════════ ROADMAP ═══════════ -->
+<details class="collapse" id="roadmap">
+  <summary><span class="num">8</span> 实施路线图 <span class="tag blue" style="vertical-align:middle;font-size:9px">深度</span></summary>
+  <div class="body">
   <div class="phase-grid">
-    <div class="card"><h4>🎯 Phase 1 · 场景切入</h4><p>0-3 月。选 2 个场景做 MVP（客服+IT运维），50 家客户免费 POC。</p></div>
-    <div class="card"><h4>🚀 Phase 2 · 行业标杆</h4><p>3-9 月。2-3 个标杆客户，打造可复制模板，渠道合作联合销售。</p></div>
-    <div class="card"><h4>🌱 Phase 3 · 网络效应</h4><p>9-18 月。技能市场开放第三方开发者，API 开放，代理商网络。</p></div>
+    <div class="card"><div class="big amber">📦</div><h4>Phase 1 · MVP</h4><p>2-3 月</p><ul><li>单 Agent（对话+Tool Use+RAG）</li><li>身份模块 · 1-2 连接器</li><li>管理后台基础</li></ul></div>
+    <div class="card"><div class="big">🏗️</div><h4>Phase 2 · 组织化</h4><p>4-6 月</p><ul><li>多 Agent 编排+工作流</li><li>绩效看板 · 审计</li><li>@agent 标签路由</li></ul></div>
+    <div class="card"><div class="big purple">🌐</div><h4>Phase 3 · 平台化</h4><p>6-12 月</p><ul><li>私有化部署</li><li>第三方开发者生态</li><li>合规认证</li></ul></div>
   </div>
-</section>
+  </div>
+</details>
 
-<section id="sec12">
-  <h2><span class="num">12</span> 关键风险与应对</h2>
+<!-- ═══════════ RISKS ═══════════ -->
+<details class="collapse" id="risks">
+  <summary><span class="num">9</span> 风险评估与缓解</summary>
+  <div class="body">
   <div class="table-wrap"><table>
-    <tr><th>风险</th><th style="width:60px">概率</th><th>应对</th></tr>
-    <tr><td>大厂入场</td><td><span class="tag amber">高</span></td><td>差异化定位：不做平台，做管理AI的操作系统</td></tr>
-    <tr><td>客户不信任 AI</td><td><span class="tag amber">中高</span></td><td>关键决策人工审批，审计日志全留痕</td></tr>
-    <tr><td>模型成本下降</td><td><span class="tag green">低</span></td><td>定价锚定「替代人力成本」，5-10 倍替代空间</td></tr>
-    <tr><td>召回率瓶颈</td><td><span class="tag amber">中</span></td><td>RAG+KG 混合，超出边界升级到真人</td></tr>
+    <tr><th>风险</th><th>等级</th><th>缓解措施</th></tr>
+    <tr><td>大厂（钉钉/企微）入场</td><td><span class="tag amber">高</span></td><td>差异化定位 + 深度企业集成 + 先发优势</td></tr>
+    <tr><td>客户不信任 AI</td><td><span class="tag amber">中高</span></td><td>关键决策人工审批 · 审计日志全留痕</td></tr>
+    <tr><td>模型成本下降</td><td><span class="tag green">低</span></td><td>定价锚定人力成本替代 · 5-10 倍替代空间</td></tr>
+    <tr><td>RAG 召回瓶颈</td><td><span class="tag amber">中</span></td><td>RAG + KG 混合 · 超出边界升级到真人</td></tr>
     <tr><td>数据安全合规</td><td><span class="tag amber">中</span></td><td>私有化架构从 Phase 1 开始规划</td></tr>
+    <tr><td>招聘 AI 人才困难</td><td><span class="tag amber">中</span></td><td>远程优先 · 开放核心代码 · 社区驱动</td></tr>
   </table></div>
-</section>
+  </div>
+</details>
 
-<section id="sec-app">
-  <h2>附录：关键假设清单</h2>
-  <p class="leader">所有推论的底层假设，标记可验证性</p>
-  <div class="table-wrap"><table>
-    <tr><th>假设</th><th>状态</th><th>验证方式</th></tr>
-    <tr><td>¥699/人/月的定价承受力</td><td><span class="tag amber">待验证</span></td><td>SMV 定价测试，50 家 POC 转化率</td></tr>
-    <tr><td>RAG 召回率 ≥ 90%</td><td><span class="tag amber">待验证</span></td><td>企业知识库实测</td></tr>
-    <tr><td>多 Agent 编排的价值</td><td><span class="tag amber">待验证</span></td><td>3 家客户工作流场景 POC</td></tr>
-    <tr><td>CTO 更关心治理</td><td><span class="tag green">已验证</span></td><td>行业已有明确的 CTO 采购趋势</td></tr>
-    <tr><td>不接受变量计费</td><td><span class="tag green">已验证</span></td><td>WorkBuddy/Coze 涨价争议</td></tr>
-    <tr><td>私有化是刚需</td><td><span class="tag green">已验证</span></td><td>金融/国企/政务普遍要求</td></tr>
-  </table></div>
-</section>
+<!-- ═══════════ THE ASK ═══════════ -->
+<details class="collapse" id="ask" open>
+  <summary><span class="num">10</span> 融资需求 <span class="tag red" style="vertical-align:middle;font-size:9px">核心</span></summary>
+  <div class="body">
+
+  <div class="metric-row">
+    <div class="metric"><div class="big" style="color:var(--accent)">¥1,500 万</div><div class="label">天使轮融资</div></div>
+    <div class="metric"><div class="big" style="color:var(--purple)">18 个月</div><div class="label">资金跑道</div></div>
+    <div class="metric"><div class="big" style="color:var(--green)">15-20 人</div><div class="label">核心团队</div></div>
+    <div class="metric"><div class="big" style="color:var(--amber)">2-3 家</div><div class="label">设计合作伙伴</div></div>
+  </div>
+
+  <h3>资金用途</h3>
+  <div class="card-grid-3">
+    <div class="card"><h4>🛠️ 50% 研发</h4><p>核心引擎 + 集成层 + 管理后台 · 10 名工程师</p></div>
+    <div class="card"><h4>🎯 25% GTM</h4><p>行业标杆客户 + 渠道建设 · 5 名 BD</p></div>
+    <div class="card"><h4>🏛️ 25% 运营</h4><p>基础设施 · 合规认证 · 法务 · 团队运营</p></div>
+  </div>
+
+  <div class="callout green"><p><strong>投资人回报路径：</strong> ¥1,500 万天使 → Y2 $5M ARR A 轮 → Y3 ¥1.2 亿 ARR B 轮 → Y5 IPO（估测市值 ¥15-25 亿）。行业对标：ServiceNow（ITSM） × 微软 Copilot 的交叉点。</p></div>
+
+  </div>
+</details>
 
 </div><!-- /content -->
+</div><!-- /page-wrapper -->
 
-<script>/* All navigation is pure HTML+CSS; no JS needed */</script>
-
-</div></body>
+</body>
 </html>
