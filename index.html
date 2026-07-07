@@ -59,7 +59,7 @@ h2{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.3px}
 h2 .num{color:var(--accent);margin-right:6px;font-feature-settings:'tnum'}
 h3{font-size:14px;font-weight:600;margin:18px 0 8px;color:#e2e8f0}
 h4{font-size:12px;font-weight:600;margin:12px 0 5px;color:var(--accent)}
-p{font-size:13px;color:var(--muted);margin-bottom:8px;line-height:1.7}@media(max-width:560px){section{padding:18px 12px 14px}th,td{font-size:11px;padding:6px 8px;white-space:normal;word-break:break-all}}
+p{font-size:13px;color:var(--muted);margin-bottom:8px;line-height:1.7}@media(max-width:560px){th,td{font-size:11px;padding:6px 8px;white-space:normal;word-break:break-all}}
 p strong{color:var(--text)}
 code{font-family:'SF Mono','Fira Code','Menlo',monospace;font-size:11px;background:rgba(255,255,255,.04);padding:1px 5px;border-radius:3px;color:var(--accent)}
 ul,ol{padding-left:16px}
@@ -84,8 +84,8 @@ li strong{color:var(--text)}
 .card .big.amber{color:var(--amber)}
 
 /* ── Tables ── */
-.table-wrap{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;font-size:11px}
+.table-wrap{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}@media(max-width:560px){.table-wrap{margin:6px -12px}.table-wrap table{min-width:440px}}
+table{border-collapse:collapse;font-size:11px;min-width:100%}
 th,td{padding:6px 8px;text-align:left;border-bottom:1px solid var(--border)}
 th{font-size:9px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;background:var(--surface2);white-space:nowrap}
 tr:hover td{background:rgba(255,255,255,.015)}
@@ -176,7 +176,7 @@ blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;ba
   .phase-grid{grid-template-columns:1fr}
   .leader{font-size:12px}
 }
-@media(max-width:560px){section{padding:18px 12px 14px}
+@media(max-width:560px){
   .card-grid,.card-grid-3,.two-col,.phase-grid,.metric-row{grid-template-columns:1fr}
   section{padding:18px 10px 14px}
   .hero{padding:22px 10px 16px}
