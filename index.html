@@ -19,7 +19,7 @@
   --sidebar-w:220px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:24px}
+html{scroll-behavior:smooth;scroll-padding-top:24px;overflow-x:clip}
 body{
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',sans-serif;
   background:radial-gradient(ellipse at 20% 10%,rgba(77,208,225,.03) 0%,transparent 40%),
@@ -27,11 +27,12 @@ body{
              var(--bg);
   color:var(--text);font-size:14px;line-height:1.7;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
+  
 }
 .bg-glow{position:fixed;inset:0;pointer-events:none;z-index:0}
 .bg-glow::before{content:'';position:absolute;top:-30%;left:-10%;width:60%;height:80%;background:radial-gradient(ellipse,rgba(77,208,225,.06) 0%,transparent 70%)}
 .bg-glow::after{content:'';position:absolute;bottom:-20%;right:-10%;width:50%;height:70%;background:radial-gradient(ellipse,rgba(167,139,250,.05) 0%,transparent 70%)}
+.page-wrapper{overflow-x:hidden;min-height:100vh}
 .grid-lines{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;
   background-image:linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px);
   background-size:60px 60px}
@@ -285,7 +286,7 @@ pre .m{color:var(--purple)}
 }
 </style>
 </head>
-<body>
+<body><div class="page-wrapper">
 <div class="bg-glow"></div>
 <div class="grid-lines"></div>
 
@@ -749,5 +750,5 @@ pre .m{color:var(--purple)}
 
 <script>/* All navigation is pure HTML+CSS; no JS needed */</script>
 
-</body>
+</div></body>
 </html>
