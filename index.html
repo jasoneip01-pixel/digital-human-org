@@ -19,7 +19,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:24px;overflow-x:clip}
-body{
+body{padding:0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',sans-serif;
   background:radial-gradient(ellipse at 20% 10%,rgba(77,208,225,.03) 0%,transparent 40%),
              radial-gradient(ellipse at 80% 50%,rgba(167,139,250,.03) 0%,transparent 40%),
@@ -59,7 +59,7 @@ h2{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.3px}
 h2 .num{color:var(--accent);margin-right:6px;font-feature-settings:'tnum'}
 h3{font-size:14px;font-weight:600;margin:18px 0 8px;color:#e2e8f0}
 h4{font-size:12px;font-weight:600;margin:12px 0 5px;color:var(--accent)}
-p{font-size:13px;color:var(--muted);margin-bottom:8px;line-height:1.7}
+p{font-size:13px;color:var(--muted);margin-bottom:8px;line-height:1.7}@media(max-width:560px){section{padding:18px 12px 14px}th,td{font-size:11px;padding:6px 8px;white-space:normal;word-break:break-all}}
 p strong{color:var(--text)}
 code{font-family:'SF Mono','Fira Code','Menlo',monospace;font-size:11px;background:rgba(255,255,255,.04);padding:1px 5px;border-radius:3px;color:var(--accent)}
 ul,ol{padding-left:16px}
@@ -89,16 +89,16 @@ table{width:100%;border-collapse:collapse;font-size:11px}
 th,td{padding:6px 8px;text-align:left;border-bottom:1px solid var(--border)}
 th{font-size:9px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;background:var(--surface2);white-space:nowrap}
 tr:hover td{background:rgba(255,255,255,.015)}
-td:first-child{font-weight:500;color:var(--text)}
-td .tag{padding:1px 5px;border-radius:3px;font-size:8px;font-weight:600;white-space:nowrap}
+td:first-child{font-weight:500;color:var(--text);text-align:left}
+td{text-align:center}td .tag{padding:1px 5px;border-radius:3px;font-size:8px;font-weight:600;white-space:nowrap}
 .tag.green{background:rgba(74,222,128,.12);color:var(--green)}
 .tag.red{background:rgba(239,68,68,.1);color:var(--red)}
 .tag.amber{background:rgba(251,191,36,.1);color:var(--amber)}
 .tag.purple{background:rgba(167,139,250,.12);color:var(--purple)}
-.tag.blue{background:rgba(96,165,250,.12);color:#60a5fa}
+.tag.blue{background:rgba(96,165,250,.12);color:#60a5fa}.tag.red{background:rgba(248,113,113,.15);color:var(--red);font-size:8px;padding:1px 5px;border-radius:3px;font-weight:600;white-space:nowrap}
 
 /* ── Callouts ── */
-.callout{padding:8px 12px;border-radius:6px;font-size:11px;line-height:1.5;margin:10px 0;border-left:3px solid}
+.callout{padding:10px 14px;border-radius:8px;font-size:11px;line-height:1.5;margin:10px 0;border-left:3px solid;border:1px solid var(--border)}
 .callout.cyan{background:rgba(77,208,225,.06);border-color:var(--accent);color:var(--muted)}
 .callout.cyan strong{color:var(--accent)}
 .callout.green{background:rgba(74,222,128,.06);border-color:var(--green);color:var(--muted)}
@@ -106,7 +106,7 @@ td .tag{padding:1px 5px;border-radius:3px;font-size:8px;font-weight:600;white-sp
 .callout.purple{background:rgba(167,139,250,.06);border-color:var(--purple);color:var(--muted)}
 
 /* ── Metric row ── */
-.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}@media(max-width:560px){.metric-row{grid-template-columns:1fr 1fr;gap:6px}.metric{padding:8px 6px}.metric .big{font-size:16px}.metric .label{font-size:8px}}
 .metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px;text-align:center}
 .metric .big{font-size:20px;font-weight:800;color:var(--accent);margin-bottom:1px;line-height:1.2}
 .metric .label{font-size:9px;color:var(--muted)}
@@ -120,7 +120,7 @@ td .tag{padding:1px 5px;border-radius:3px;font-size:8px;font-weight:600;white-sp
 
 /* ── <details> collapsible ── */
 details.collapse{margin:0}
-details.collapse summary{
+details.collapse summary{align-items:baseline;
   cursor:pointer;padding:14px 0;user-select:none;outline:none;
   font-size:18px;font-weight:700;letter-spacing:-.3px;
   display:flex;align-items:center;gap:10px;
@@ -132,7 +132,7 @@ details.collapse summary::before{
 }
 details.collapse[open] summary::before{transform:rotate(90deg)}
 details.collapse summary .num{color:var(--accent);margin-right:2px}
-details.collapse .body{padding-left:0;padding-bottom:4px}
+details.collapse .body{padding:0 env(safe-area-inset-right) 0 env(safe-area-inset-left);padding-left:0;padding-bottom:4px}
 details.collapse section:first-of-type{padding-top:0}
 
 /* ── learder ── */
@@ -171,17 +171,17 @@ blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;ba
   section{padding:24px 16px 20px}
   .hero{padding:28px 16px 20px}
   .hero h1{font-size:24px}
-  h2,details.collapse summary{font-size:16px}
+  h2,details.collapse summary{align-items:baseline;font-size:16px}
   .card-grid,.card-grid-3,.two-col,.metric-row{grid-template-columns:1fr 1fr}
   .phase-grid{grid-template-columns:1fr}
   .leader{font-size:12px}
 }
-@media(max-width:560px){
+@media(max-width:560px){section{padding:18px 12px 14px}
   .card-grid,.card-grid-3,.two-col,.phase-grid,.metric-row{grid-template-columns:1fr}
   section{padding:18px 10px 14px}
   .hero{padding:22px 10px 16px}
   .hero h1{font-size:20px}
-  h2,details.collapse summary{font-size:15px}
+  h2,details.collapse summary{align-items:baseline;font-size:15px}
   .card{padding:10px}
   p,li,.callout{font-size:12px}
   th,td{font-size:10px;padding:5px 6px}
@@ -220,7 +220,7 @@ blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;ba
 
 @media print{
   .sidebar{display:none}.content{margin-left:0}.mobile-nav-details{display:none!important}
-  body{background:white;color:#1a1a2e}
+  body{padding:0 env(safe-area-inset-right) 0 env(safe-area-inset-left);background:white;color:#1a1a2e}
   .card,.callout,pre{border-color:#ccc;background:#f5f5f5!important}
   section,.hero{border-bottom-color:#ddd}
   h1,h2,h3,h4{color:#111!important}
