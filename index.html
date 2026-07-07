@@ -171,48 +171,81 @@ pre .m{color:var(--purple)}
 /* ── Phases / Timeline ── */
 .phase-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0}
 
-/* ── Responsive ── */
-@media(max-width:820px){
+/* ════════════════════════════════ */
+/*  Responsive Breakpoints          */
+/* ════════════════════════════════ */
+
+/* ── Phase grid (tablet) ── */
+@media(max-width:1024px){
+  .phase-grid{grid-template-columns:1fr 1fr}
+}
+
+/* ── Tablet Portrait / Small Laptop ── */
+@media(max-width:960px){
   .content{margin-left:0}
   .sidebar{display:none}
-  section{padding:32px 20px 28px;max-width:100%}
-  .hero{padding:44px 20px 32px;max-width:100%}
-  .card-grid,.card-grid-3,.two-col,.three-col,.phase-grid,.metric-row{grid-template-columns:1fr 1fr}
+  section{padding:36px 28px 30px;max-width:100%}
+  .hero{padding:48px 28px 36px;max-width:100%}
+  .card-grid,.card-grid-3,.two-col,.three-col,.metric-row{grid-template-columns:1fr 1fr}
+  .phase-grid{grid-template-columns:1fr 1fr}
+  /* Show mobile nav below 960px */
+  .mobile-nav-details{display:block;position:sticky;top:0;z-index:50;border-bottom:1px solid var(--border)}
 }
+
+/* ── Large Phone / Small Tablet (landscape) ── */
+@media(max-width:768px){
+  section{padding:30px 20px 26px}
+  .hero{padding:40px 20px 30px}
+  .hero h1{font-size:28px}
+  h2{font-size:18px}
+  .card-grid,.card-grid-3,.two-col,.three-col,.metric-row{grid-template-columns:1fr 1fr}
+  .phase-grid{grid-template-columns:1fr}
+  .leader{font-size:13px}
+}
+
+/* ── Phone (portrait) ── */
 @media(max-width:560px){
   .card-grid,.card-grid-3,.two-col,.three-col,.phase-grid,.metric-row{grid-template-columns:1fr}
   section{padding:24px 14px 20px}
   .hero{padding:32px 14px 24px}
-  .hero h1{font-size:24px}
-  h2{font-size:17px}
+  .hero h1{font-size:22px}
+  h2{font-size:16px}
+  h3{font-size:13px}
   p,li,blockquote,.callout{font-size:12px}
   th,td{font-size:11px;padding:6px 8px}
   .table-wrap{margin:8px -14px;border-radius:0}
-  .card{padding:12px}
+  .card{padding:10px 12px}
+  .card .big{font-size:22px}
+  .metric .big{font-size:20px}
   .hero-badge{font-size:10px;padding:4px 12px}
+  .inline-tag{font-size:9px;padding:1px 6px}
+  .sidebar .num{display:none}
+  .mobile-nav-links .num{display:inline}
 }
 
-/* ── Print ── */
-@media print{
-  .sidebar{display:none}.content{margin-left:0}
-  body{background:white;color:#1a1a2e}
-  .card,.callout,pre{border-color:#ccc;background:#f5f5f5!important}
-  section{border-bottom-color:#ddd}
-  .hero{border-bottom-color:#ddd}
-  h1,h2,h3,h4{color:#111!important}
-  p,li,blockquote{color:#333!important}
-  .hero-badge{border:1px solid var(--accent);color:var(--accent)!important}
+/* ── Small Phone ── */
+@media(max-width:360px){
+  section{padding:18px 10px 16px}
+  .hero{padding:24px 10px 20px}
+  .hero h1{font-size:19px}
+  .hero-badge{font-size:9px;padding:3px 10px}
+  .metric-row{grid-template-columns:1fr 1fr}
+  .metric{padding:8px}
+  .table-wrap{margin:6px -10px}
 }
 
-/* ── Mobile sidebar ── */
-@media(max-width:820px){
-  #sidebar{display:none}
-  #sidebar.open{display:block;position:fixed;width:260px;background:var(--bg);z-index:100;border-right:1px solid var(--border)}
+/* ── Phone Landscape (<960px, landscape) ── */
+@media(max-width:960px) and (orientation:landscape){
+  .hero h1{font-size:24px}
+  .hero{padding:28px 20px 20px}
+  section{padding:20px 20px 18px}
+  .card .big{font-size:20px}
+  .metric .big{font-size:18px}
+  .phase-grid{grid-template-columns:1fr 1fr}
 }
-/* ── Mobile nav: HTML5 <details> native toggle ── */
-.mobile-nav-details{display:none}
-@media(max-width:820px){
-  .mobile-nav-details{display:block;position:sticky;top:0;z-index:50;border-bottom:1px solid var(--border)}
+
+/* ── Mobile nav: always visible below 960px (merged condition) ── */
+@media(max-width:960px){
   .mobile-nav-details summary.mobile-nav{
     display:flex;align-items:center;gap:10px;padding:12px 14px;
     font-size:13px;font-weight:600;cursor:pointer;background:var(--surface);
@@ -234,6 +267,21 @@ pre .m{color:var(--purple)}
     display:block;padding:10px 18px 4px;font-size:9px;text-transform:uppercase;
     letter-spacing:.6px;color:rgba(255,255,255,.15);font-weight:600;
   }
+}
+@media(min-width:961px){
+  .mobile-nav-details{display:none!important}
+}
+
+/* ── Print ── */
+@media print{
+  .sidebar{display:none}.content{margin-left:0}
+  .mobile-nav-details{display:none!important}
+  body{background:white;color:#1a1a2e}
+  .card,.callout,pre{border-color:#ccc;background:#f5f5f5!important}
+  section,.hero{border-bottom-color:#ddd}
+  h1,h2,h3,h4{color:#111!important}
+  p,li,blockquote,.leader{color:#333!important}
+  .hero-badge{border:1px solid var(--accent);color:var(--accent)!important}
 }
 </style>
 </head>
